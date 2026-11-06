@@ -13,6 +13,8 @@
 html,body{margin:0;background:#071a1e;color:#EEF5F4;font-family:'Source Sans 3',system-ui,sans-serif}
 .banner{padding:10px 16px;text-align:center;font-size:14px;line-height:1.35;background:#0B252B;border-bottom:1px solid rgba(255,255,255,0.12)}
 .banner strong{font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;font-size:16px}
+.banner .privacy{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:4px;font-size:13px;color:#9FE6DB}
+.banner .privacy svg{flex-shrink:0}
 #stage{display:flex;justify-content:center;padding:12px 0 24px}
 #frame{position:relative;overflow:hidden;border-radius:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
 #app{width:390px;height:844px;transform-origin:top left}
@@ -33,7 +35,7 @@ input,select,textarea{font-family:inherit}
 </style>
 </head>
 <body>
-<div class="banner">Maquette interactive de <strong>TOULADI</strong> · données fictives, rien n'est enregistré.</div>
+<div class="banner">Maquette interactive de <strong>TOULADI</strong> · données fictives, rien n'est enregistré.<span class="privacy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Dans l'app, vos coordonnées GPS et toutes les informations compilées sont privées et restent sur votre téléphone. Aucun compte, aucun serveur.</span></div>
 <div id="stage"><div id="frame"><div id="app"></div></div></div>
 <template id="tpl">
 <div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; position: relative; isolation: isolate; background: #0B252B; color: #EEF5F4; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 15px;">

@@ -1,0 +1,1785 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#071a1e">
+<title>Touladi — Maquette</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#071a1e;color:#EEF5F4;font-family:'Source Sans 3',system-ui,sans-serif}
+.banner{padding:10px 16px;text-align:center;font-size:14px;line-height:1.35;background:#0B252B;border-bottom:1px solid rgba(255,255,255,0.12)}
+.banner strong{font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;font-size:16px}
+#stage{display:flex;justify-content:center;padding:12px 0 24px}
+#frame{position:relative;overflow:hidden;border-radius:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+#app{width:390px;height:844px;transform-origin:top left}
+
+body{margin:0}
+a{color:#7FD6CA}a:hover{color:#FFFFFF}
+:root{color-scheme:dark}
+input::placeholder,textarea::placeholder{color:#8FA3A0}
+select option{background:#0E2C33;color:#EEF5F4}
+.ph-dore{background-image:url(photos/dore-jaune.jpg)}
+.ph-touladi{background-image:url(photos/touladi.jpg)}
+.ph-brochet{background-image:url(photos/grand-brochet.jpg)}
+.ph-achigan{background-image:url(photos/achigan.jpg)}
+.ph-perchaude{background-image:url(photos/perchaude.jpg)}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+
+</style>
+</head>
+<body>
+<div class="banner">Maquette interactive de <strong>TOULADI</strong> · données fictives, rien n'est enregistré.</div>
+<div id="stage"><div id="frame"><div id="app"></div></div></div>
+<template id="tpl">
+<div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; position: relative; isolation: isolate; background: #0B252B; color: #EEF5F4; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 15px;">
+<svg aria-hidden="true" width="390" height="844" viewBox="0 0 390 844" style="position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none;">
+<defs>
+<radialGradient id="bgGlowA" cx="0.12" cy="0.1" r="0.6"><stop offset="0" stop-color="#2FA39A" stop-opacity="0.5"/><stop offset="1" stop-color="#2FA39A" stop-opacity="0"/></radialGradient>
+<radialGradient id="bgGlowB" cx="0.92" cy="0.78" r="0.55"><stop offset="0" stop-color="#E2683A" stop-opacity="0.32"/><stop offset="1" stop-color="#E2683A" stop-opacity="0"/></radialGradient>
+<radialGradient id="bgGlowC" cx="0.45" cy="0.5" r="0.7"><stop offset="0" stop-color="#1F5E7A" stop-opacity="0.6"/><stop offset="1" stop-color="#1F5E7A" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="390" height="844" fill="#0B252B"/>
+<rect width="390" height="844" fill="url(#bgGlowC)"/>
+<rect width="390" height="844" fill="url(#bgGlowA)"/>
+<rect width="390" height="844" fill="url(#bgGlowB)"/>
+<g fill="none" stroke="#9FE6DB" stroke-opacity="0.1" stroke-width="1.2">
+<path d="M60 470 C90 360 240 330 320 400 C390 460 360 610 260 640 C160 670 40 600 60 470Z"/>
+<path d="M95 480 C120 395 235 372 295 425 C350 472 325 585 250 605 C175 625 80 570 95 480Z"/>
+<path d="M130 490 C150 430 230 412 272 450 C310 485 292 560 240 572 C188 585 118 545 130 490Z"/>
+<path d="M165 498 C178 460 225 450 250 474 C272 496 262 535 232 542 C202 549 158 528 165 498Z"/>
+<path d="M-40 120 C40 40 200 60 230 140 C255 210 160 260 60 250 C-20 242 -70 180 -40 120Z"/>
+<path d="M-10 135 C50 80 175 92 198 148 C218 198 145 232 70 225 C10 219 -30 172 -10 135Z"/>
+<path d="M25 148 C65 115 150 122 166 158 C180 190 130 210 82 205 C40 200 12 172 25 148Z"/>
+<path d="M-30 760 C80 700 260 720 420 680"/>
+<path d="M-30 795 C90 745 270 760 420 725"/>
+</g>
+</svg>
+
+<header style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 18px 16px 14px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0;">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<svg width="40" height="40" viewBox="0 0 64 64" role="img" aria-label="Logo Touladi">
+<defs><linearGradient id="hdrLg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A5560"/><stop offset="1" stop-color="#0A2328"/></linearGradient></defs>
+<rect width="64" height="64" rx="15" fill="url(#hdrLg)"/>
+<rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="#9FE6DB" stroke-opacity="0.35"/>
+<g fill="none" stroke="#7FD6CA" stroke-opacity="0.4" stroke-width="1.2"><path d="M8 50 C20 44 44 46 58 40"/><path d="M8 56 C22 51 42 53 58 48"/><path d="M10 14 C22 9 40 10 54 16"/></g>
+<path d="M22 24.5 C25 19.5 30 19 33.5 21.5" fill="none" stroke="#F3E9DA" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M9 32 C15 23 31 20 42 27 L54 20 L50.5 32 L54 44 L42 37 C31 44 15 41 9 32 Z" fill="#F3E9DA"/>
+<path d="M13 34.5 C20 39 32 39.5 41 35.5" fill="none" stroke="#E2683A" stroke-width="1.8" stroke-linecap="round"/>
+<circle cx="15" cy="30.5" r="1.7" fill="#0A2328"/>
+<g fill="#B9A586"><circle cx="24" cy="28.5" r="1.2"/><circle cx="29" cy="32.5" r="1"/><circle cx="34" cy="28" r="1.2"/><circle cx="38.5" cy="32" r="0.9"/></g>
+</svg>
+<div style="display: flex; flex-direction: column;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.14em; line-height: 1.1;">TOULADI</span>
+<span style="font-size: 12px; color: #B8C7C4; white-space: nowrap;">Carnet de pêche du Québec</span>
+</div>
+</div>
+<button onClick="{{goZone}}" aria-label="{{zoneLabel}}, hors ligne. Changer de zone" style="min-height: 44px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 0 10px; white-space: nowrap; flex-shrink: 0; background: transparent; border: 1px solid #3A5357; color: #D7E2E0;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #7FC29B;"></span>{{zoneLabel}}</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px;">
+<sc-if value="{{showBack}}" hint-placeholder-val="{{false}}">
+<button onClick="{{goBack}}" aria-label="Retour" style="width: 44px; height: 44px; margin-left: -10px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #FFFFFF;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+</sc-if>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.05;">{{title}}</h1>
+</div>
+</header>
+
+<main style="flex: 1; min-height: 0; overflow-y: auto; padding: 16px 16px 96px; box-sizing: border-box;">
+
+<!-- ============ CARNET ============ -->
+<sc-if value="{{isCarnet}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;">
+<span style="font-size: 13px; font-weight: 600;">Version gratuite</span>
+<span style="font-size: 13px; color: #A9BDB9;">{{used}} / 25 prises</span>
+</div>
+<div style="height: 6px; background: rgba(255,255,255,0.12);"><div style="height: 6px; background: #2E6B6E; width: {{usedPct}}%;"></div></div>
+<button onClick="{{goPlus}}" style="align-self: flex-start; background: transparent; border: 0; padding: 4px 0; color: #FF9466; font-weight: 700; font-size: 14px;">Passer à Touladi Pro — achat unique</button>
+</section>
+
+<div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px;">
+<sc-for list="{{chips}}" as="chip" hint-placeholder-count="5">
+<button onClick="{{chip.pick}}" style="flex-shrink: 0; min-height: 40px; padding: 0 14px; font-size: 14px; font-weight: 600; background: {{chip.bg}}; color: {{chip.fg}}; border: 1px solid {{chip.bd}};">{{chip.label}}</button>
+</sc-for>
+</div>
+
+<sc-for list="{{shown}}" as="item" hint-placeholder-count="4">
+<article style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; overflow: hidden;">
+<div class="{{item.phClass}}" role="img" aria-label="{{item.alt}}" style="width: 100%; height: 180px; flex-shrink: 0; background-color: {{item.tint}}; background-size: cover; background-position: {{item.phPos}}; display: flex; align-items: flex-end; padding: 6px; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.18);"><sc-if value="{{item.noPhoto}}" hint-placeholder-val="{{false}}"><span style="font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: #F1F4F2;">PHOTO</span></sc-if></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 10px 12px 12px;">
+<div style="display: flex; justify-content: space-between; gap: 8px;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.1;">{{item.species}}</span>
+<sc-if value="{{item.released}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 700; color: #7FD6CA; border: 1px solid #2E6B6E; padding: 2px 6px; height: fit-content; white-space: nowrap;">Remis à l'eau</span></sc-if>
+</div>
+<span style="font-size: 15px; font-weight: 600;">{{item.size}}</span>
+<span style="font-size: 13px; color: #A9BDB9;">{{item.lake}} · {{item.when}}</span>
+<span style="font-size: 13px; color: #A9BDB9;">{{item.lure}}</span>
+</div>
+</article>
+</sc-for>
+<span style="font-size: 11px; color: #A9BDB9;">Photos d'exemple : iNaturalist — Quinn (CC BY), Lythronax246 (CC BY), Daughter Dad (CC BY).</span>
+</div>
+</sc-if>
+
+<!-- ============ AJOUT ============ -->
+<sc-if value="{{isAjout}}" hint-placeholder-val="{{false}}">
+<form style="display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<label for="sp-search" style="font-size: 13px; font-weight: 600;">Espèce</label>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.45); padding: 8px 12px;">
+<span style="display: flex; align-items: center; gap: 10px; min-width: 0;"><sc-if value="{{spHasPhoto}}" hint-placeholder-val="{{true}}"><span class="{{spPhClass}}" role="img" aria-label="Photo : {{spFr}}" style="width: 56px; height: 56px; flex-shrink: 0; background-size: cover; background-position: {{spPhPos}}; border: 1px solid rgba(255,255,255,0.2);"></span></sc-if><span style="display: flex; flex-direction: column; min-width: 0;"><span style="font-weight: 700; font-size: 17px;">{{spFr}}</span><span style="font-size: 13px; font-style: italic; color: #A9BDB9;">{{spSci}}</span></span></span>
+<span style="font-size: 12px; color: #A9BDB9; text-align: right;">{{spFam}}</span>
+</div>
+<input id="sp-search" type="search" value="{{spQuery}}" onChange="{{setSpQuery}}" placeholder="Chercher parmi {{spCount}} espèces (ex. truite mouchetée)" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+<sc-if value="{{spQueryEmpty}}" hint-placeholder-val="{{true}}"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #A9BDB9;">ESPÈCES SPORTIVES</span></sc-if>
+<div style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{spResults}}" as="r" hint-placeholder-count="10">
+<button type="button" onClick="{{r.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{r.bg}}; color: {{r.fg}}; border: 1px solid {{r.bd}};">{{r.fr}}</button>
+</sc-for>
+</div>
+<sc-if value="{{spNoResult}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: #A9BDB9;">Aucune espèce trouvée. Effacez la recherche et choisissez « Espèce inconnue ».</span></sc-if>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Longueur ({{lenUnit}})
+<input type="number" inputmode="decimal" value="{{length}}" onChange="{{setLength}}" placeholder="{{phLen}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Poids ({{wUnit}})
+<input type="number" inputmode="decimal" value="{{weight}}" onChange="{{setWeight}}" placeholder="{{phW}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Profondeur du fond ({{depthUnit}})
+<input type="number" inputmode="decimal" value="{{depthVal}}" onChange="{{setDepth}}" placeholder="—" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Profondeur de pêche · facultatif
+<input type="number" inputmode="decimal" value="{{fishDepth}}" onChange="{{setFishDepth}}" placeholder="poisson suspendu" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+</div>
+<span style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #A9BDB9;"><span style="flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 2px 6px; border: 1px solid {{depthSrc.bd}}; color: {{depthSrc.fg}}; background: {{depthSrc.bg}};">{{depthSrc.tag}}</span>{{depthSrc.text}}</span>
+</div>
+<div role="status" style="border: 1px solid {{rule.bd}}; background: {{rule.bg}}; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: {{rule.fg}};">{{rule.head}}</span>
+<span style="font-size: 15px; font-weight: 700; color: {{rule.fg}};">{{rule.line1}}</span>
+<span style="font-size: 13px; color: #EEF5F4;">{{rule.line2}}</span>
+<button type="button" onClick="{{goRegl}}" style="align-self: flex-start; min-height: 36px; padding: 0; background: transparent; border: 0; color: #7FD6CA; font-size: 13px; font-weight: 700;">Voir tous les règlements de la zone</button>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Température de l'eau ({{tUnit}}) · facultatif
+<input type="number" inputmode="decimal" value="{{water}}" onChange="{{setWater}}" placeholder="{{phT}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<fieldset style="margin: 0; padding: 12px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+<legend style="padding: 0 6px; font-size: 13px; font-weight: 700;">Technique et montage</legend>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-tech" style="font-size: 13px; font-weight: 600;">Technique</span>
+<div role="group" aria-labelledby="lbl-tech" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{techs}}" as="t" hint-placeholder-count="7">
+<button type="button" onClick="{{t.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid {{t.bd}};">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Modèle (de mon équipement)
+<select value="{{gearSel}}" onChange="{{setGear}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4;">
+<option>Jig 1/4 oz + ver</option><option>Cuillère ondulante</option><option>Poisson-nageur articulé (2 hameçons triples)</option><option>Ménés morts</option><option>Mouche sèche</option><option>Autre montage</option>
+</select>
+</label>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-bait" style="font-size: 13px; font-weight: 600;">Appât ou leurre utilisé</span>
+<div role="radiogroup" aria-labelledby="lbl-bait" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{baitOpts}}" as="b" hint-placeholder-count="7">
+<button type="button" role="radio" aria-checked="{{b.on}}" onClick="{{b.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{b.bg}}; color: {{b.fg}}; border: 1px solid {{b.bd}};">{{b.label}}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{baitIsFish}}" hint-placeholder-val="{{false}}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Espèce utilisée comme appât
+<select value="{{baitSp}}" onChange="{{setBaitSp}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4;">
+<option>Méné (cyprin)</option><option>Meunier</option><option>Perchaude</option><option>Hareng</option><option>Capelan</option><option>Maquereau</option><option>Crevette</option>
+</select>
+</label>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-hooks" style="font-size: 13px; font-weight: 600;">Hameçons sur la ligne</span>
+<div role="group" aria-labelledby="lbl-hooks" style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.22);">
+<button type="button" aria-label="Retirer un hameçon" onClick="{{hooksDown}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">−</button>
+<span style="flex: 1; text-align: center; font-size: 17px; font-weight: 700;">{{hooks}}</span>
+<button type="button" aria-label="Ajouter un hameçon" onClick="{{hooksUp}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">+</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-lines" style="font-size: 13px; font-weight: 600;">Lignes à l'eau</span>
+<div role="group" aria-labelledby="lbl-lines" style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.22);">
+<button type="button" aria-label="Retirer une ligne" onClick="{{linesDown}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">−</button>
+<span style="flex: 1; text-align: center; font-size: 17px; font-weight: 700;">{{lines}}</span>
+<button type="button" aria-label="Ajouter une ligne" onClick="{{linesUp}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">+</button>
+</div>
+</div>
+</div>
+<span style="font-size: 12px; color: #A9BDB9;">Un leurre ou une mouche compte pour un hameçon ; un hameçon triple compte pour un.</span>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px;"><input type="checkbox" checked="{{flyOnly}}" onChange="{{toggleFly}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Plan d'eau réservé à la mouche (affiché sur place)</label>
+</fieldset>
+<div role="status" style="border: 1px solid {{vg.bd}}; background: {{vg.bg}}; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: {{vg.fg}};">VIGIE ENGINS ET APPÂTS · {{zoneLabel}}</span>
+<span style="font-size: 15px; font-weight: 700; color: {{vg.fg}};">{{vg.verdict}}</span>
+<sc-for list="{{vg.items}}" as="v" hint-placeholder-count="3">
+<div style="display: flex; gap: 8px; align-items: flex-start;"><span style="flex-shrink: 0; min-width: 76px; text-align: center; font-size: 11px; font-weight: 700; padding: 3px 6px; background: {{v.bg}}; color: {{v.fg}}; border: 1px solid {{v.bd}};">{{v.tag}}</span><span style="font-size: 13px; color: #EEF5F4;">{{v.text}}</span></div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<button type="button" style="min-height: 64px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px dashed rgba(255,255,255,0.35); color: #EEF5F4; font-size: 14px; font-weight: 600; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Ajouter une photo</button>
+<div style="min-height: 64px; background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 8px 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 2px;"><span style="font-size: 12px; font-weight: 700; color: #7FD6CA;">GPS capté</span><span style="font-size: 13px;">47,26° N · 78,95° O</span><span style="font-size: 12px; color: #A9BDB9;">Réservoir Kipawa · {{zoneLabel}}</span></div>
+</div>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px;"><input type="checkbox" checked="{{released}}" onChange="{{toggleReleased}}" style="width: 22px; height: 22px; accent-color: #7FD6CA;"/>Remis à l'eau</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Notes
+<textarea rows="3" placeholder="Vent du sud-ouest, 4 m de fond, touche lente…" style="font-size: 16px; padding: 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; resize: none;"></textarea>
+</label>
+<button type="button" onClick="{{save}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 17px; font-weight: 700;">Enregistrer la prise</button>
+<span style="font-size: 12px; color: #A9BDB9; text-align: center;">Enregistrée sur ce téléphone seulement.</span>
+</form>
+</sc-if>
+
+<!-- ============ CARTE ============ -->
+<sc-if value="{{isCarte}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="position: relative; border: 1px solid rgba(255,255,255,0.22); height: 320px; overflow: hidden;">
+<svg width="358" height="320" viewBox="0 0 358 320" role="img" aria-label="Carte hors ligne du lac avec trois spots privés">
+<rect width="358" height="320" fill="#1F3B36"/>
+<path d="M30 30 C90 0 160 40 175 85 C190 130 150 150 172 195 C195 238 262 222 305 262 C340 295 310 330 250 330 L80 330 C55 285 112 245 78 202 C45 160 4 140 14 92 C20 60 14 42 30 30Z" fill="#2D6573"/>
+<path d="M60 70 C100 52 140 80 145 110 C150 140 118 160 132 196 C146 232 205 236 250 268" fill="none" stroke="#6FAAB6" stroke-width="1.2" stroke-dasharray="4 4"/>
+<ellipse cx="110" cy="245" rx="22" ry="12" fill="#1F3B36"/>
+<path d="M230 20 C260 10 300 30 320 60 C332 80 318 96 296 92 C270 88 240 60 230 20Z" fill="#2D6573"/>
+<g><circle cx="92" cy="118" r="11" fill="#C24F1C" stroke="#FFFFFF" stroke-width="2.5"/><text x="92" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF" font-family="Source Sans 3, sans-serif">1</text></g>
+<g><circle cx="150" cy="210" r="11" fill="#C24F1C" stroke="#FFFFFF" stroke-width="2.5"/><text x="150" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF" font-family="Source Sans 3, sans-serif">2</text></g>
+<g><circle cx="262" cy="276" r="11" fill="#C24F1C" stroke="#FFFFFF" stroke-width="2.5"/><text x="262" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF" font-family="Source Sans 3, sans-serif">3</text></g>
+<circle cx="200" cy="248" r="16" fill="#2E6B6E" opacity="0.18"/><circle cx="200" cy="248" r="6" fill="#2E6B6E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="16" y="306" font-size="10" fill="#A9BDB9" font-family="Source Sans 3, sans-serif">© contributeurs OpenStreetMap</text>
+</svg>
+<div style="position: absolute; top: 10px; left: 10px; right: 10px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px;">{{zoneLabel}}</span><span style="font-size: 12px; color: #A9BDB9;">{{zoneModeLabel}}</span></div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;"><button onClick="{{goRegl}}" style="min-height: 40px; padding: 0 12px; background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; border: 0; font-size: 14px; font-weight: 600;">Règlements de la zone</button><button onClick="{{goZone}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #EEF5F4; border: 1px solid rgba(255,255,255,0.45); font-size: 14px; font-weight: 600;">Changer</button></div>
+</div>
+</div>
+
+<section style="display: flex; flex-direction: column; gap: 8px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 22px;">Mes spots privés</h2><span style="font-size: 13px; color: #A9BDB9;">3 sur ce téléphone</span></div>
+<sc-for list="{{spots}}" as="sp" hint-placeholder-count="3">
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px 12px; display: flex; align-items: center; gap: 12px;">
+<span style="width: 28px; height: 28px; border-radius: 50%; background: #C24F1C; color: #FFFFFF; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">{{sp.n}}</span>
+<div style="display: flex; flex-direction: column; flex: 1;"><span style="font-weight: 600;">{{sp.name}}</span><span style="font-size: 13px; color: #A9BDB9;">{{sp.meta}}</span></div>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: #A9BDB9; display: flex; gap: 6px; align-items: center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Vos spots ne quittent jamais le téléphone sans votre accord.</span>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Cartes hors ligne</h2>
+<div style="display: flex; justify-content: space-between; font-size: 14px;"><span>Témiscamingue</span><span style="color: #7FD6CA; font-weight: 600;">Téléchargée · 142 Mo</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px;"><span>Réserve La Vérendrye</span><span style="color: #A9BDB9;">Non téléchargée</span></div>
+<button style="align-self: flex-start; min-height: 40px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; padding: 0 12px; font-weight: 600; font-size: 14px;">Ajouter une région</button>
+</section>
+</div>
+</sc-if>
+
+<!-- ============ STATS ============ -->
+<sc-if value="{{isStats}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px; display: flex; flex-direction: column;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">{{totalCatches}}</span><span style="font-size: 12px; color: #A9BDB9;">prises 2026</span></div>
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px; display: flex; flex-direction: column;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">6</span><span style="font-size: 12px; color: #A9BDB9;">espèces</span></div>
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px; display: flex; flex-direction: column;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">7</span><span style="font-size: 12px; color: #A9BDB9;">plans d'eau</span></div>
+</div>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Prises par espèce</h2>
+<sc-for list="{{bySpecies}}" as="b" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 96px 1fr 28px; align-items: center; gap: 8px; font-size: 14px;">
+<span>{{b.label}}</span>
+<div style="height: 14px; background: rgba(255,255,255,0.10);"><div style="height: 14px; background: #2E6B6E; width: {{b.pct}}%;"></div></div>
+<span style="text-align: right; font-weight: 600;">{{b.n}}</span>
+</div>
+</sc-for>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Par mois</h2>
+<div style="display: flex; align-items: flex-end; gap: 10px; height: 110px;">
+<sc-for list="{{byMonth}}" as="m" hint-placeholder-count="6">
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end;">
+<span style="font-size: 12px; font-weight: 600;">{{m.n}}</span>
+<div style="width: 100%; background: #C24F1C; height: {{m.h}}px;"></div>
+<span style="font-size: 12px; color: #A9BDB9;">{{m.label}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Prises par profondeur du fond</h2>
+<sc-for list="{{byDepth}}" as="b" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 84px 1fr 28px; align-items: center; gap: 4px 8px; font-size: 14px;">
+<span style="display: flex; flex-direction: column;"><span style="font-weight: 600;">{{b.label}}</span><span style="font-size: 12px; color: #A9BDB9;">{{b.top}}</span></span>
+<div style="height: 14px; background: rgba(255,255,255,0.10);"><div style="height: 14px; background: #5E97C9; width: {{b.pct}}%;"></div></div>
+<span style="text-align: right; font-weight: 600;">{{b.n}}</span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: #A9BDB9;">Profondeur connue pour 23 prises sur 25, dont 9 estimées par la bathymétrie.</span>
+</section>
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<div style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 12px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; color: #B8C7C4;">Meilleur moment</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px;">Aube · 5 h–8 h</span><span style="font-size: 13px; color: #D7E2E0;">10 prises sur 23</span></div>
+<div style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 12px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; color: #B8C7C4;">Meilleur leurre</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px;">Jig + ver</span><span style="font-size: 13px; color: #D7E2E0;">7 dorés</span></div>
+</section>
+<span style="font-size: 12px; color: #A9BDB9;">Calculé sur ce téléphone, à partir de votre carnet.</span>
+</div>
+</sc-if>
+
+<!-- ============ PÊCHE BLANCHE ============ -->
+<sc-if value="{{isGlace}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; color: #B8C7C4;">Sortie en cours</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px;">{{iceLake}}</span><span style="font-size: 13px; color: #D7E2E0;">Depuis 2 h 14 · {{tipCount}} brimbales · air {{airTemp}}</span></div>
+<button style="min-height: 44px; padding: 0 12px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; border: 0; font-weight: 700; font-size: 14px;">Terminer</button>
+</section>
+
+<section style="background: rgba(150,205,235,0.13); border: 1px solid rgba(150,205,235,0.32); padding: 12px 14px; display: flex; gap: 14px; align-items: center;">
+<div style="display: flex; flex-direction: column;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1;">{{iceNow}}</span><span style="font-size: 13px; color: #C9DEE6;">Épaisseur de glace mesurée</span></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 3px; font-size: 13px; color: #C9DEE6;"><span>19 jan. · {{iceH1}}</span><span>12 jan. · {{iceH2}}</span><span>5 jan. · {{iceH3}}</span></div>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; min-width: 0;">Plan d'eau
+<select value="{{iceLake}}" onChange="{{setIceLake}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; width: 100%;"><option>Réservoir Kipawa</option><option>Lac Raven</option><option>Lac Clarice</option><option>Lac Témiscamingue</option></select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; min-width: 0;">Date (simulation)
+<select value="{{sessDate}}" onChange="{{setSessDate}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; width: 100%;"><option value="today">Aujourd'hui</option><option value="12-10">10 décembre</option><option value="01-15">15 janvier</option><option value="04-10">10 avril</option></select>
+</label>
+<span style="grid-column: 1 / span 2; font-size: 12px; color: #A9BDB9;">Changez la zone dans l'en-tête ou le plan d'eau : le nombre de brimbales s'ajuste. La date n'est simulée que dans l'aperçu.</span>
+</section>
+<section role="status" style="border: 1px solid {{gv.bd}}; background: {{gv.bg}}; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: {{gv.fg}};">VIGIE DE LA SORTIE · {{zoneLabel}}</span>
+<span style="font-size: 15px; font-weight: 700; color: {{gv.fg}};">{{gv.verdict}}</span>
+<sc-for list="{{gv.items}}" as="v" hint-placeholder-count="3">
+<div style="display: flex; gap: 8px; align-items: flex-start;"><span style="flex-shrink: 0; min-width: 76px; text-align: center; font-size: 11px; font-weight: 700; padding: 3px 6px; background: {{v.bg}}; color: {{v.fg}}; border: 1px solid {{v.bd}};">{{v.tag}}</span><span style="font-size: 13px; color: #EEF5F4;">{{v.text}}</span></div>
+</sc-for>
+</section>
+<section style="display: flex; flex-direction: column; gap: 8px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline;"><h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 22px;">Brimbales</h2><span style="font-size: 15px; font-weight: 700;">{{tipCount}} / {{tipMax}} permises</span></div>
+<span style="font-size: 13px; color: #A9BDB9;">{{iceInfo}}</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<sc-for list="{{tipups}}" as="tp" hint-placeholder-count="4">
+<div style="position: relative; display: flex;">
+<button onClick="{{tp.toggle}}" aria-label="{{tp.aria}}" style="flex: 1; min-height: 84px; text-align: left; padding: 10px 44px 10px 12px; display: flex; flex-direction: column; gap: 3px; background: {{tp.bg}}; color: {{tp.fg}}; border: 1px solid {{tp.bd}};">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px;">{{tp.label}} · {{tp.status}}</span>
+<span style="font-size: 13px;">{{tp.depth}}</span>
+<span style="font-size: 13px;">{{tp.bait}}</span>
+</button>
+<button type="button" onClick="{{tp.remove}}" aria-label="Retirer {{tp.label}}" style="position: absolute; top: 0; right: 0; width: 44px; height: 44px; background: transparent; border: 0; color: {{tp.fg}}; display: flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+</sc-for>
+<sc-for list="{{emptySlots}}" as="es" hint-placeholder-count="1">
+<button type="button" onClick="{{es.add}}" style="min-height: 84px; background: transparent; border: 1px dashed rgba(255,255,255,0.35); color: #A9BDB9; font-size: 14px; font-weight: 600; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-size: 22px; line-height: 1;">+</span>{{es.label}} · place libre</button>
+</sc-for>
+</div>
+</section>
+<button onClick="{{addTip}}" aria-disabled="{{tipFull}}" style="min-height: 48px; background: transparent; border: 1px solid {{addFg}}; color: {{addFg}}; font-weight: 700; font-size: 15px;">{{addLabel}}</button>
+</div>
+</sc-if>
+
+<!-- ============ PLUS ============ -->
+<sc-if value="{{isPlus}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<nav style="display: flex; flex-direction: column; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14);">
+<button onClick="{{goEquip}}" style="min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 16px;">Équipement</span><span style="font-size: 13px; color: #A9BDB9;">14 articles · valeur 1 240 $</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<button onClick="{{goEntretien}}" style="min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 16px;">Entretien</span><span style="font-size: 13px; color: #FF9466; font-weight: 600;">{{maintOverdueTxt}}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<button onClick="{{goDepenses}}" style="min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 16px;">Dépenses</span><span style="font-size: 13px; color: #A9BDB9;">Saison 2026 · {{expTotalTxt}}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<button onClick="{{goRegl}}" style="min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 16px;">Règlements de pêche</span><span style="font-size: 13px; color: #A9BDB9;">{{zoneLabel}} · saison 2026-2027</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<button onClick="{{goReglages}}" style="min-height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: transparent; border: 0; color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column;"><span style="font-weight: 700; font-size: 16px;">Réglages</span><span style="font-size: 13px; color: #A9BDB9;">Unités : {{unitsSummary}}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+
+<button onClick="{{goSauvegarde}}" style="min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid {{bkBd}}; color: #EEF5F4; text-align: left;"><span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700; font-size: 16px;">Sauvegarde et export</span><span style="font-size: 13px; font-weight: 600; color: {{bkColor}};">{{bkStatus}}</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.04em;">TOULADI PRO</span>
+<span style="font-size: 14px; color: #D7E2E0;">Prises et spots illimités, équipement, entretien, dépenses, statistiques et pêche blanche.</span>
+<span style="font-size: 14px; color: #D7E2E0;">Payé une fois. Aucun abonnement, aucun compte.</span>
+<button style="min-height: 50px; background: #C24F1C; color: #FFFFFF; border: 0; font-weight: 700; font-size: 16px;">Débloquer Pro · [PRIX] $</button>
+</section>
+</div>
+</sc-if>
+
+<!-- ============ AJOUT ÉQUIPEMENT ============ -->
+<sc-if value="{{isAjoutEquip}}" hint-placeholder-val="{{false}}">
+<form style="display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-gcat" style="font-size: 13px; font-weight: 600;">Catégorie</span>
+<div role="radiogroup" aria-labelledby="lbl-gcat" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;">
+<sc-for list="{{geCats}}" as="c" hint-placeholder-count="9">
+<button type="button" role="radio" aria-checked="{{c.on}}" onClick="{{c.pick}}" style="min-height: 48px; padding: 4px 6px; font-size: 13px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.bd}};">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-gtype" style="font-size: 13px; font-weight: 600;">Type</span>
+<div role="radiogroup" aria-labelledby="lbl-gtype" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{geTypes}}" as="t" hint-placeholder-count="6">
+<button type="button" role="radio" aria-checked="{{t.on}}" onClick="{{t.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid {{t.bd}};">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Marque et modèle
+<input type="text" value="{{geName}}" onChange="{{setGeName}}" placeholder="{{gePh}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<sc-for list="{{geFields}}" as="f" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 13px; font-weight: 600;">{{f.label}}</span>
+<sc-if value="{{f.isChips}}" hint-placeholder-val="{{true}}"><div style="display: flex; flex-wrap: wrap; gap: 6px;"><sc-for list="{{f.chips}}" as="o" hint-placeholder-count="5"><button type="button" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for></div></sc-if>
+<sc-if value="{{f.isNum}}" hint-placeholder-val="{{false}}"><div style="display: flex; align-items: center; gap: 8px;"><input type="number" inputmode="decimal" aria-label="{{f.label}}" value="{{f.val}}" onChange="{{f.set}}" placeholder="{{f.ph}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; width: 120px; box-sizing: border-box;"/><span style="font-size: 15px; font-weight: 600;">{{f.unit}}</span></div></sc-if>
+<sc-if value="{{f.isText}}" hint-placeholder-val="{{false}}"><input type="text" aria-label="{{f.label}}" value="{{f.val}}" onChange="{{f.set}}" placeholder="{{f.ph}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/></sc-if>
+<sc-if value="{{f.isQty}}" hint-placeholder-val="{{false}}"><div style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.22); width: 160px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);"><button type="button" aria-label="Diminuer la quantité" onClick="{{f.dec}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">−</button><span style="flex: 1; text-align: center; font-size: 17px; font-weight: 700;">{{f.val}}</span><button type="button" aria-label="Augmenter la quantité" onClick="{{f.inc}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">+</button></div></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{geRemShow}}" hint-placeholder-val="{{false}}"><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px;"><input type="checkbox" checked="{{geRem}}" onChange="{{toggleGeRem}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Créer un rappel « changer le fil » dans 12 mois</label></sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Valeur ($)
+<input type="number" inputmode="decimal" value="{{geValue}}" onChange="{{setGeValue}}" placeholder="0" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Date d'achat
+<input type="date" value="{{geDate}}" onChange="{{setGeDate}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+</div>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px;"><input type="checkbox" checked="{{geToExp}}" onChange="{{toggleGeToExp}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Ajouter aussi aux dépenses de la saison</label>
+<button type="button" onClick="{{toggleGeMore}}" aria-expanded="{{geMoreAria}}" style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.14); border-bottom: 1px solid rgba(255,255,255,0.14); padding: 0 2px; font-size: 15px; font-weight: 700; color: #EEF5F4;">Plus de détails (facultatif)<span aria-hidden="true" style="font-size: 20px;">{{geMoreSign}}</span></button>
+<sc-if value="{{geMore}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<button type="button" style="min-height: 56px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px dashed rgba(255,255,255,0.35); color: #EEF5F4; font-size: 14px; font-weight: 600;">Ajouter une photo</button>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">N° de série
+<input type="text" value="{{geSerial}}" onChange="{{setGeSerial}}" placeholder="Utile en cas de vol ou de réclamation" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 13px; font-weight: 600;">Champs personnalisés</span>
+<span style="font-size: 12px; color: #A9BDB9;">Pour noter ce que la fiche ne prévoit pas : frein, roulements, finition de lame…</span>
+<sc-for list="{{geCustom}}" as="cf" hint-placeholder-count="1">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;"><input type="text" aria-label="Nom du champ" value="{{cf.l}}" onChange="{{cf.setL}}" placeholder="Nom (ex. frein)" style="min-height: 44px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/><input type="text" aria-label="Valeur du champ" value="{{cf.v}}" onChange="{{cf.setV}}" placeholder="Valeur (ex. 9 lb)" style="min-height: 44px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/></div>
+</sc-for>
+<button type="button" onClick="{{addGeCustom}}" style="align-self: flex-start; min-height: 40px; padding: 0 12px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 600; font-size: 14px;">Ajouter un champ</button>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Notes
+<textarea rows="3" value="{{geNotes}}" onChange="{{setGeNotes}}" placeholder="ex. acheté usagé, frein à réviser" style="font-size: 16px; padding: 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; resize: none;"></textarea>
+</label>
+</div>
+</sc-if>
+<div style="background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 10px 12px; font-size: 13px;"><span style="font-weight: 700; color: #9FE6DB;">Aperçu : </span>{{geSummary}}</div>
+<button type="button" onClick="{{saveGear}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 17px; font-weight: 700;">Enregistrer l'article</button>
+</form>
+</sc-if>
+
+<!-- ============ SAUVEGARDE ============ -->
+<sc-if value="{{isSauvegarde}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 12px; color: #B8C7C4;">Dernière sauvegarde</span>
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.1;">{{bkHead}}</span>
+<span style="font-size: 13px; color: #D7E2E0;">{{bkCounts}}</span>
+<sc-if value="{{bkLate}}" hint-placeholder-val="{{true}}"><span style="align-self: flex-start; margin-top: 4px; font-size: 12px; font-weight: 700; padding: 3px 8px; background: #C24F1C; color: #FFFFFF;">Sauvegarde en retard selon votre rappel</span></sc-if>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Sauvegarde complète</h2>
+<span style="font-size: 13px; color: #A9BDB9;">Un seul fichier <strong>.touladi</strong> : tout le carnet, les spots, l'équipement, les dépenses et les photos. C'est le seul format qui permet de tout restaurer.</span>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px;"><input type="checkbox" checked="{{bkPhotos}}" onChange="{{toggleBkPhotos}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Inclure les photos (31 photos)</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px;"><input type="checkbox" checked="{{bkPwOn}}" onChange="{{toggleBkPw}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Protéger par un mot de passe</label>
+<sc-if value="{{bkPwOn}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<label for="bk-pw" style="font-size: 13px; font-weight: 600;">Mot de passe</label>
+<input id="bk-pw" type="password" value="{{bkPw}}" onChange="{{setBkPw}}" autocomplete="new-password" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+<span style="font-size: 12px; color: #FFB08A;">Sans ce mot de passe, la sauvegarde ne peut pas être ouverte. Touladi ne peut pas le récupérer pour vous.</span>
+</div>
+</sc-if>
+<button onClick="{{makeBackup}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 16px; font-weight: 700;">Créer la sauvegarde · {{bkSize}}</button>
+<sc-if value="{{bkMade}}" hint-placeholder-val="{{false}}">
+<div role="status" style="background: rgba(127,214,202,0.13); border: 1px solid #2E6B6E; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 14px; font-weight: 700; color: #9FE6DB;">{{bkFile}} est prêt</span>
+<span style="font-size: 13px;">{{bkMadeTxt}}</span>
+</div>
+</sc-if>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Rappel de sauvegarde</h2>
+<div role="radiogroup" aria-label="Rappel de sauvegarde" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{bkReminds}}" as="o" hint-placeholder-count="4"><button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for>
+</div>
+<span style="font-size: 12px; color: #A9BDB9;">Sans serveur, la sauvegarde est votre seule protection si vous perdez votre téléphone. Les sauvegardes d'iCloud et de Google sont un filet de sécurité, mais Android peut y laisser de côté les photos.</span>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Restaurer</h2>
+<sc-if value="{{rsIdle}}" hint-placeholder-val="{{true}}">
+<button onClick="{{rsPick}}" style="min-height: 48px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 700; font-size: 15px;">Choisir un fichier .touladi</button>
+</sc-if>
+<sc-if value="{{rsPreview}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px 12px; display: flex; flex-direction: column; gap: 3px;">
+<span style="font-weight: 700; font-size: 15px;">touladi-2026-10-02.touladi</span>
+<span style="font-size: 13px;">Sauvegardé le 2 oct. 2026 · Touladi 1.0 · schéma 3</span>
+<span style="font-size: 13px;">148 prises · 3 spots · 29 photos · 14 articles · 6 dépenses</span>
+</div>
+<span style="font-size: 13px; color: #FFB08A; font-weight: 600;">Vos données actuelles seront remplacées. Une copie de sécurité est créée juste avant, pour pouvoir revenir en arrière.</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<button onClick="{{rsCancel}}" style="min-height: 46px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 600; font-size: 14px;">Annuler</button>
+<button onClick="{{rsConfirm}}" style="min-height: 46px; background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 0; color: #FFFFFF; font-weight: 700; font-size: 14px;">Restaurer</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{rsDone}}" hint-placeholder-val="{{false}}">
+<div role="status" style="background: rgba(127,214,202,0.13); border: 1px solid #2E6B6E; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 14px; font-weight: 700; color: #9FE6DB;">Carnet restauré</span>
+<span style="font-size: 13px;">Copie de sécurité conservée : {{rsSafety}}. Les données d'une ancienne version sont mises à jour automatiquement.</span>
+<button onClick="{{rsCancel}}" style="align-self: flex-start; min-height: 36px; padding: 0; background: transparent; border: 0; color: #7FD6CA; font-weight: 700; font-size: 13px;">OK</button>
+</div>
+</sc-if>
+</section>
+
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Exporter vos données</h2>
+<span style="font-size: 13px; color: #A9BDB9;">Pour Excel ou un autre logiciel. Ces fichiers ne servent pas à restaurer.</span>
+<span id="lbl-csv" style="font-size: 13px; font-weight: 600;">Tableaux CSV</span>
+<div role="group" aria-labelledby="lbl-csv" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{csvOpts}}" as="o" hint-placeholder-count="4"><button type="button" aria-pressed="{{o.on}}" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for>
+</div>
+<button onClick="{{exportCsv}}" style="min-height: 46px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 700; font-size: 14px;">{{csvLabel}}</button>
+<div style="border-top: 1px solid rgba(255,255,255,0.10); padding-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-size: 13px; font-weight: 600;">Spots pour un GPS ou Google Earth</span>
+<span style="font-size: 12px; color: #FFB08A;">Vos spots quitteront le téléphone : partagez ce fichier avec prudence.</span>
+<button onClick="{{exportGpx}}" style="min-height: 46px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 700; font-size: 14px;">Exporter les 3 spots en GPX</button>
+</div>
+<sc-if value="{{hasExpMsg}}" hint-placeholder-val="{{false}}"><div role="status" style="background: rgba(127,214,202,0.13); border: 1px solid #2E6B6E; padding: 10px 12px; font-size: 13px;">{{expMsg}}</div></sc-if>
+</section>
+</div>
+</sc-if>
+
+<!-- ============ AJOUT ENTRETIEN ============ -->
+<sc-if value="{{isAjoutEnt}}" hint-placeholder-val="{{false}}">
+<form style="display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-mgear" style="font-size: 13px; font-weight: 600;">Équipement concerné</span>
+<div role="radiogroup" aria-labelledby="lbl-mgear" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{meGears}}" as="g" hint-placeholder-count="6">
+<button type="button" role="radio" aria-checked="{{g.on}}" onClick="{{g.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{g.bg}}; color: {{g.fg}}; border: 1px solid {{g.bd}};">{{g.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-mtask" style="font-size: 13px; font-weight: 600;">Tâche</span>
+<span style="font-size: 12px; color: #A9BDB9;">Suggestions pour cet article : la fréquence habituelle se remplit toute seule.</span>
+<div role="radiogroup" aria-labelledby="lbl-mtask" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{meTpls}}" as="t" hint-placeholder-count="4">
+<button type="button" role="radio" aria-checked="{{t.on}}" onClick="{{t.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid {{t.bd}};">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{meOther}}" hint-placeholder-val="{{false}}"><input type="text" aria-label="Tâche personnalisée" value="{{meTaskOther}}" onChange="{{setMeTaskOther}}" placeholder="ex. Changer les roulements" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/></sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-mmode" style="font-size: 13px; font-weight: 600;">Fréquence</span>
+<div role="radiogroup" aria-labelledby="lbl-mmode" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{meModes}}" as="u" hint-placeholder-count="4">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 56px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 4px;"><span style="font-weight: 700; font-size: 14px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{meIsCount}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+<span style="font-size: 14px; font-weight: 600;">{{meEveryWord}}</span>
+<div role="group" aria-label="Intervalle" style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.22); width: 150px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);"><button type="button" aria-label="Diminuer" onClick="{{meNDown}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">−</button><span style="flex: 1; text-align: center; font-size: 17px; font-weight: 700;">{{meN}}</span><button type="button" aria-label="Augmenter" onClick="{{meNUp}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">+</button></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{meUnitChips}}" as="o" hint-placeholder-count="4"><button type="button" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for>
+</div>
+<sc-if value="{{meIsUsage}}" hint-placeholder-val="{{false}}"><span style="font-size: 12px; color: #A9BDB9;">Touladi compte vos sorties à partir du carnet et de la pêche blanche. Les heures de moteur se notent quand vous cochez « fait ».</span></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{meIsSeason}}" hint-placeholder-val="{{false}}">
+<div role="radiogroup" aria-label="Moment de la saison" style="display: flex; flex-direction: column; gap: 6px;">
+<sc-for list="{{meSeasons}}" as="o" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="min-height: 52px; padding: 6px 12px; text-align: left; display: flex; flex-direction: column; gap: 2px; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid rgba(255,255,255,0.45);"><span style="font-weight: 700; font-size: 15px;">{{o.label}}</span><span style="font-size: 12px; color: {{o.sub}};">{{o.hint}}</span></button></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{meIsOnce}}" hint-placeholder-val="{{false}}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Date
+<input type="date" value="{{meDate}}" onChange="{{setMeDate}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+</sc-if>
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 10px 12px; display: flex; flex-direction: column; gap: 8px;">
+<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 600;"><input type="checkbox" checked="{{meNotif}}" onChange="{{toggleMeNotif}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Notification sur le téléphone</label>
+<sc-if value="{{meShowRemind}}" hint-placeholder-val="{{true}}"><div style="display: flex; flex-wrap: wrap; gap: 6px;"><sc-for list="{{meReminds}}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for></div></sc-if>
+<sc-if value="{{meIsUsage}}" hint-placeholder-val="{{false}}"><span style="font-size: 12px; color: #A9BDB9;">Selon l'usage, le rappel s'affiche au début de la sortie où le seuil est atteint.</span></sc-if>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: end;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Coût habituel ($)
+<input type="number" inputmode="decimal" value="{{meCost}}" onChange="{{setMeCost}}" placeholder="facultatif" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 46px; font-size: 13px;"><input type="checkbox" checked="{{meCostExp}}" onChange="{{toggleMeCostExp}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Ajouter aux dépenses quand c'est fait</label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Instructions · facultatif
+<textarea rows="3" value="{{meNotes}}" onChange="{{setMeNotes}}" placeholder="ex. graisse marine sur les engrenages, 2 gouttes d'huile sur la manivelle" style="font-size: 16px; padding: 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; resize: none;"></textarea>
+</label>
+<div style="background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 10px 12px; font-size: 13px;"><span style="font-weight: 700; color: #9FE6DB;">Aperçu : </span>{{meSummary}}</div>
+<button type="button" onClick="{{saveMaint}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 17px; font-weight: 700;">Enregistrer l'entretien</button>
+</form>
+</sc-if>
+
+<!-- ============ AJOUT DÉPENSE ============ -->
+<sc-if value="{{isAjoutDep}}" hint-placeholder-val="{{false}}">
+<form style="display: flex; flex-direction: column; gap: 14px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Montant total ($)
+<input type="number" inputmode="decimal" value="{{deAmt}}" onChange="{{setDeAmt}}" placeholder="0,00" style="min-height: 60px; font-size: 28px; font-weight: 700; padding: 0 12px; border: 1px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-dcat" style="font-size: 13px; font-weight: 600;">Catégorie</span>
+<div role="radiogroup" aria-labelledby="lbl-dcat" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px;">
+<sc-for list="{{deCats}}" as="c" hint-placeholder-count="10">
+<button type="button" role="radio" aria-checked="{{c.on}}" onClick="{{c.pick}}" style="min-height: 44px; padding: 4px 12px; text-align: left; font-size: 14px; font-weight: 600; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.bd}};">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{deSubShow}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 13px; font-weight: 600;">{{deSubLabel}} · facultatif</span>
+<sc-if value="{{deSubChips}}" hint-placeholder-val="{{true}}"><div style="display: flex; flex-wrap: wrap; gap: 6px;"><sc-for list="{{deSubOpts}}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{o.pick}}" style="min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 600; background: {{o.bg}}; color: {{o.fg}}; border: 1px solid {{o.bd}};">{{o.label}}</button></sc-for></div></sc-if>
+<sc-if value="{{deSubText}}" hint-placeholder-val="{{false}}"><input type="text" aria-label="{{deSubLabel}}" value="{{deText}}" onChange="{{setDeText}}" placeholder="{{deSubPh}}" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{deIsEquip}}" hint-placeholder-val="{{false}}">
+<div style="background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 13px;">Pour suivre la valeur d'un article et l'associer à vos prises, ajoutez-le plutôt dans Équipement : la dépense sera créée en même temps.</span>
+<button type="button" onClick="{{goAjoutEquip}}" style="align-self: flex-start; min-height: 40px; padding: 0 12px; background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; border: 0; font-weight: 600; font-size: 14px;">Ajouter un article</button>
+</div>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; min-width: 0;">Date
+<input type="date" value="{{deDate}}" onChange="{{setDeDate}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; min-width: 0;">Sortie liée
+<select value="{{deTrip}}" onChange="{{setDeTrip}}" style="min-height: 46px; font-size: 16px; padding: 0 8px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; width: 100%;"><option>Aucune</option><option>11 oct. · Lac Kipawa</option><option>4 oct. · Lac Témiscamingue</option><option>Pêche blanche en cours</option></select>
+</label>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-split" style="font-size: 13px; font-weight: 600;">Partagé entre</span>
+<div style="display: flex; align-items: center; gap: 12px;">
+<div role="group" aria-labelledby="lbl-split" style="display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.22); width: 160px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);"><button type="button" aria-label="Une personne de moins" onClick="{{splitDown}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">−</button><span style="flex: 1; text-align: center; font-size: 17px; font-weight: 700;">{{deSplit}}</span><button type="button" aria-label="Une personne de plus" onClick="{{splitUp}}" style="width: 44px; min-height: 44px; border: 0; background: rgba(255,255,255,0.10); font-size: 20px; font-weight: 700; color: #EEF5F4;">+</button></div>
+<span style="font-size: 15px; font-weight: 600;">{{deShare}}</span>
+</div>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600;">Note · facultatif
+<input type="text" value="{{deNote}}" onChange="{{setDeNote}}" placeholder="ex. plein avant le départ" style="min-height: 46px; font-size: 16px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); color: #EEF5F4; box-sizing: border-box; width: 100%;"/>
+</label>
+<button type="button" style="min-height: 52px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px dashed rgba(255,255,255,0.35); color: #EEF5F4; font-size: 14px; font-weight: 600;">Photo du reçu</button>
+<button type="button" onClick="{{saveExp}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 17px; font-weight: 700;">Enregistrer la dépense</button>
+<span style="font-size: 12px; color: #A9BDB9; text-align: center;">Seule votre part est comptée dans vos statistiques. Les reçus restent sur ce téléphone.</span>
+</form>
+</sc-if>
+
+<!-- ============ ZONE ============ -->
+<sc-if value="{{isZone}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<span id="lbl-zmode" style="font-size: 13px; font-weight: 600;">Choix de la zone</span>
+<div role="radiogroup" aria-labelledby="lbl-zmode" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{zoneModeOpts}}" as="u" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 56px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-weight: 700; font-size: 15px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+<span style="font-size: 14px;">Zone active : <strong>{{zoneLabel}}</strong> · {{zoneModeLabel}}</span>
+</section>
+<sc-if value="{{zoneManual}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Zones de pêche du Québec</h2>
+<div role="radiogroup" aria-label="Zones de pêche" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px;">
+<sc-for list="{{zoneBtns}}" as="z" hint-placeholder-count="30">
+<button type="button" role="radio" aria-checked="{{z.on}}" aria-label="{{z.aria}}" onClick="{{z.pick}}" style="min-height: 48px; font-size: 15px; font-weight: 700; background: {{z.bg}}; color: {{z.fg}}; border: 1px solid {{z.bd}};">{{z.label}}</button>
+</sc-for>
+</div>
+<a href="https://peche.faune.gouv.qc.ca/RegPec/carteinteractive/fr" target="_blank" rel="noopener" style="min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600;">Pas sûr ? Carte interactive officielle des zones</a>
+</section>
+</sc-if>
+<button onClick="{{goRegl}}" style="min-height: 52px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 16px; font-weight: 700;">Voir les règlements · {{zoneLabel}}</button>
+<span style="font-size: 12px; color: #A9BDB9;">Les limites des zones sont embarquées dans l'app : la détection fonctionne sans réseau.</span>
+</div>
+</sc-if>
+
+<!-- ============ RÈGLEMENTS ============ -->
+<sc-if value="{{isRegl}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.05;">{{zoneLabel}}</span>
+<span style="font-size: 13px; color: #D7E2E0;">Saison 2026-2027 · du 1er avril 2026 au 31 mars 2027</span>
+<span style="font-size: 12px; color: #B8C7C4;">Zone {{zoneModeLabel}} · données vérifiées le 6 nov. 2026</span>
+<button onClick="{{goZone}}" style="align-self: flex-start; margin-top: 6px; min-height: 40px; padding: 0 12px; background: transparent; border: 1px solid #5B7377; color: #FFFFFF; font-weight: 600; font-size: 14px;">Changer de zone</button>
+</section>
+<sc-if value="{{seasonExpired}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(226,104,58,0.16); border: 1px solid #C24F1C; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #FFB08A;">Saison terminée : mettez Touladi à jour pour obtenir les règlements de la nouvelle saison.</section>
+</sc-if>
+<sc-if value="{{reglNoData}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-weight: 700; font-size: 16px;">Pas encore dans l'aperçu</span>
+<span style="font-size: 14px; color: #A9BDB9;">Cet aperçu contient les zones 3, 13 Est et 13 Ouest. L'app embarquera toutes les zones.</span>
+</section>
+</sc-if>
+<sc-if value="{{reglHasClosed}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(226,104,58,0.16); border: 1px solid #C24F1C; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #FFB08A;">PÊCHE INTERDITE TOUTE LA SAISON</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px;">
+<sc-for list="{{reglClosed}}" as="c" hint-placeholder-count="1"><span style="font-size: 14px; font-weight: 600; padding: 4px 8px; border: 1px solid #C24F1C; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);">{{c.name}}</span></sc-for>
+</div>
+</section>
+</sc-if>
+<sc-for list="{{reglRows}}" as="r" hint-placeholder-count="6">
+<article style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
+<span style="font-weight: 700; font-size: 16px;">{{r.name}}</span>
+<span style="flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 3px 8px; background: {{r.badgeBg}}; color: {{r.badgeFg}}; border: 1px solid {{r.badgeBd}};">{{r.badge}}</span>
+</div>
+<span style="font-size: 13px; color: #A9BDB9;">{{r.period}}</span>
+<span style="font-size: 15px; font-weight: 600;">{{r.limit}}</span>
+<sc-if value="{{r.hasSize}}" hint-placeholder-val="{{false}}"><span style="font-size: 14px;">Taille à garder : {{r.size}}</span></sc-if>
+<sc-if value="{{r.hasNote}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: #A9BDB9;">{{r.note}}</span></sc-if>
+</article>
+</sc-for>
+<sc-if value="{{reglHasWinter}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(150,205,235,0.13); border: 1px solid rgba(150,205,235,0.32); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Pêche d'hiver</h2>
+<sc-for list="{{reglWinter}}" as="w" hint-placeholder-count="2"><span style="font-size: 14px;">{{w.t}}</span></sc-for>
+</section>
+</sc-if>
+<sc-if value="{{hasExc}}" hint-placeholder-val="{{false}}">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Plans d'eau avec règles particulières · {{excCount}}</h2>
+<span style="font-size: 13px; color: #A9BDB9;">Si votre plan d'eau figure ici, ses règles remplacent celles de la zone. Touladi applique la règle du plan d'eau à vos prises.</span>
+<div style="display: flex; flex-direction: column;">
+<sc-for list="{{excShown}}" as="e" hint-placeholder-count="8"><span style="font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.10);">{{e.name}}</span></sc-for>
+</div>
+<sc-if value="{{excMore}}" hint-placeholder-val="{{false}}"><button onClick="{{showAllExc}}" style="align-self: flex-start; min-height: 40px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; padding: 0 12px; font-weight: 600; font-size: 14px;">{{excMoreLabel}}</button></sc-if>
+</section>
+</sc-if>
+<a href="https://peche.faune.gouv.qc.ca/regpec/fr/Info/Reglements" target="_blank" rel="noopener" style="min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 6px; background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none;">Source officielle : Pêcher au Québec<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+<span style="font-size: 12px; color: #A9BDB9;">Touladi résume la réglementation pour vous aider. Seule la source officielle du gouvernement du Québec a valeur légale. Dans les zecs, réserves fauniques et pourvoiries, les règles affichées sur place s'appliquent.</span>
+</div>
+</sc-if>
+
+<!-- ============ RÉGLAGES ============ -->
+<sc-if value="{{isReglages}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 14px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Unités</h2>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-mesures" style="font-size: 13px; font-weight: 600;">Mesures</span>
+<div role="radiogroup" aria-labelledby="lbl-mesures" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{unitOpts}}" as="u" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 56px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-weight: 700; font-size: 15px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-temp" style="font-size: 13px; font-weight: 600;">Température</span>
+<div role="radiogroup" aria-labelledby="lbl-temp" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{tempOpts}}" as="u" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 56px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-weight: 700; font-size: 15px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+</section>
+<section style="background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 12px 14px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #7FD6CA;">APERÇU</span>
+<span style="font-size: 14px;">Prise : {{exCatch}}</span>
+<span style="font-size: 14px;">Glace : {{exIce}} · Profondeur : {{exDepth}} · Eau : {{exTemp}}</span>
+</section>
+<span style="font-size: 12px; color: #A9BDB9;">Par défaut, Touladi parle comme au bord de l'eau : pouces, pieds et livres. Vos données restent enregistrées en métrique : changer d'unité ne modifie que l'affichage. Les tailles légales gardent aussi leur valeur officielle en centimètres.</span>
+<span style="font-size: 12px; color: #A9BDB9;">L'équipement garde les unités du commerce (canne 6 pi 6, jig 1/4 oz, fil 10 lb).</span>
+</div>
+</sc-if>
+
+<!-- ============ ÉQUIPEMENT ============ -->
+<sc-if value="{{isEquip}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px;">
+<sc-for list="{{gearTabs}}" as="g" hint-placeholder-count="3">
+<button onClick="{{g.pick}}" style="flex-shrink: 0; padding: 0 14px; min-height: 42px; font-weight: 600; font-size: 14px; background: {{g.bg}}; color: {{g.fg}}; border: 1px solid {{g.bd}};">{{g.label}}</button>
+</sc-for>
+</div>
+<sc-for list="{{gearShown}}" as="it" hint-placeholder-count="3">
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px;">
+<div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700; font-size: 16px;">{{it.name}}</span><span style="font-size: 13px; color: #A9BDB9;">{{it.meta}}</span><span style="font-size: 13px; color: #7FD6CA; font-weight: 600;">{{it.used}}</span></div>
+<span style="font-weight: 700; white-space: nowrap;">{{it.value}}</span>
+</div>
+</sc-for>
+<sc-if value="{{gearEmpty}}" hint-placeholder-val="{{false}}"><div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px dashed rgba(255,255,255,0.35); padding: 16px 14px; font-size: 14px; color: #A9BDB9;">Aucun article dans cette catégorie pour l'instant.</div></sc-if>
+<button onClick="{{goAjoutEquip}}" style="min-height: 48px; background: #C24F1C; border: 0; color: #FFFFFF; font-weight: 700; font-size: 15px;">Ajouter un article</button>
+</div>
+</sc-if>
+
+<!-- ============ ENTRETIEN ============ -->
+<sc-if value="{{isEntretien}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 10px;">
+<sc-for list="{{maint}}" as="mt" hint-placeholder-count="4">
+<label style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); border-left: 0; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start;">
+<input type="checkbox" checked="{{mt.done}}" onChange="{{mt.toggle}}" style="width: 22px; height: 22px; margin-top: 2px; accent-color: #7FD6CA; flex-shrink: 0;"/>
+<span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700; font-size: 16px;">{{mt.task}}</span><span style="font-size: 13px; color: #A9BDB9;">{{mt.gear}}</span><span style="font-size: 13px; color: #A9BDB9;">{{mt.rule}} · {{mt.remindTxt}}</span><span style="font-size: 13px; font-weight: 600; color: {{mt.dueColor}};">{{mt.due}}</span></span>
+</label>
+</sc-for>
+<span style="font-size: 12px; color: #A9BDB9;">Cochez quand c'est fait : le prochain entretien se calcule tout seul. Les rappels sont des notifications locales, sans connexion.</span>
+<button onClick="{{goAjoutEnt}}" style="min-height: 48px; background: #C24F1C; border: 0; color: #FFFFFF; font-weight: 700; font-size: 15px;">Ajouter un entretien</button>
+</div>
+</sc-if>
+
+<!-- ============ DÉPENSES ============ -->
+<sc-if value="{{isDepenses}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 14px; display: flex; flex-direction: column;"><span style="font-size: 12px; color: #B8C7C4;">Saison 2026</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.05;">{{expTotalTxt}}</span><span style="font-size: 13px; color: #D7E2E0;">{{expPerCatch}}</span></section>
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<sc-for list="{{expenses}}" as="ex" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 14px;">
+<span>{{ex.label}}</span><span style="font-weight: 700;">{{ex.amount}}</span>
+<div style="grid-column: 1 / span 2; height: 8px; background: rgba(255,255,255,0.10);"><div style="height: 8px; background: #C24F1C; width: {{ex.pct}}%;"></div></div>
+</div>
+</sc-for>
+</section>
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column;">
+<h2 style="margin: 0 0 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Dernières dépenses</h2>
+<sc-for list="{{expRecent}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.10);">
+<span style="display: flex; flex-direction: column; min-width: 0;"><span style="font-size: 15px; font-weight: 600;">{{r.cat}}</span><span style="font-size: 13px; color: #A9BDB9;">{{r.date}} · {{r.note}}</span></span>
+<span style="font-weight: 700; white-space: nowrap;">{{r.amount}}</span>
+</div>
+</sc-for>
+</section>
+<button onClick="{{goAjoutDep}}" style="min-height: 48px; background: #C24F1C; border: 0; color: #FFFFFF; font-weight: 700; font-size: 15px;">Ajouter une dépense</button>
+</div>
+</sc-if>
+
+</main>
+
+<sc-if value="{{isCarnet}}" hint-placeholder-val="{{true}}">
+<button onClick="{{goAjout}}" style="position: absolute; right: 16px; bottom: 92px; min-height: 56px; padding: 0 20px; background: #C24F1C; color: #FFFFFF; border: 0; font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(16,38,42,0.28);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nouvelle prise</button>
+</sc-if>
+
+<nav aria-label="Navigation principale" style="position: absolute; left: 0; right: 0; bottom: 0; height: 76px; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border-top: 1px solid rgba(255,255,255,0.14); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));">
+<button onClick="{{goCarnet}}" style="background: transparent; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: {{tc.carnet}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>Carnet</button>
+<button onClick="{{goCarte}}" style="background: transparent; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: {{tc.carte}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</button>
+<button onClick="{{goStats}}" style="background: transparent; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: {{tc.stats}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M11 20V5M17 20v-7M3 20h18"/></svg>Stats</button>
+<button onClick="{{goGlace}}" style="background: transparent; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: {{tc.glace}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M3.5 7l17 10M3.5 17l17-10"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Glace</button>
+<button onClick="{{goPlus}}" style="background: transparent; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 12px; font-weight: 600; color: {{tc.plus}};"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Plus</button>
+</nav>
+</div>
+</template>
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script src="runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // [fr, scientific, family, sport (1/0), regulation key, aliases]. 118 species + 3 forms/hybrids + unknown.
+    this.SP = [
+      ["Doré jaune", "Sander vitreus", "Perches et dorés", 1, "dore", "doré, walleye, pickerel"],
+      ["Doré noir", "Sander canadensis", "Perches et dorés", 1, "dore", "sauger"],
+      ["Grand brochet", "Esox lucius", "Brochets", 1, "brochet", "brochet, brochet du nord, pike"],
+      ["Maskinongé", "Esox masquinongy", "Brochets", 1, "maskinonge", "musky, masky, muskie"],
+      ["Maskinongé tigre (hybride)", "Esox masquinongy × E. lucius", "Brochets", 0, "maskinonge", "tiger musky"],
+      ["Brochet maillé", "Esox niger", "Brochets", 1, "brochet", "chain pickerel"],
+      ["Brochet d'Amérique", "Esox americanus americanus", "Brochets", 0, "brochet", "redfin pickerel"],
+      ["Brochet vermiculé", "Esox americanus vermiculatus", "Brochets", 0, "brochet", "grass pickerel"],
+      ["Touladi", "Salvelinus namaycush", "Salmonidés", 1, "touladi", "truite grise, omble gris, truite de lac, lake trout"],
+      ["Truite moulac (hybride)", "Salvelinus namaycush × S. fontinalis", "Salmonidés", 1, "touladi", "moulac, splake, lacmou"],
+      ["Omble de fontaine", "Salvelinus fontinalis", "Salmonidés", 1, "omble", "truite mouchetée, truite de ruisseau, truite, brook trout"],
+      ["Omble chevalier", "Salvelinus alpinus", "Salmonidés", 1, "omble", "truite rouge, arctic char"],
+      ["Truite arc-en-ciel", "Oncorhynchus mykiss", "Salmonidés", 1, "arc", "rainbow, steelhead"],
+      ["Truite brune", "Salmo trutta", "Salmonidés", 1, "truiteBF", "brown trout"],
+      ["Truite fardée", "Oncorhynchus clarkii", "Salmonidés", 0, "truiteBF", "cutthroat"],
+      ["Ouananiche", "Salmo salar (forme d'eau douce)", "Salmonidés", 1, "ouananiche", "saumon d'eau douce, saumon, landlocked salmon"],
+      ["Saumon atlantique", "Salmo salar", "Salmonidés", 1, "saumon", "saumon, atlantic salmon"],
+      ["Saumon chinook", "Oncorhynchus tshawytscha", "Salmonidés", 0, "autres", "king salmon"],
+      ["Saumon coho", "Oncorhynchus kisutch", "Salmonidés", 0, "autres", "coho"],
+      ["Saumon rose", "Oncorhynchus gorbuscha", "Salmonidés", 0, "autres", "pink salmon"],
+      ["Saumon rouge (kokani)", "Oncorhynchus nerka", "Salmonidés", 0, "autres", "kokanee, sockeye"],
+      ["Grand corégone", "Coregonus clupeaformis", "Salmonidés", 1, "autres", "corégone, poisson blanc, whitefish"],
+      ["Cisco de lac", "Coregonus artedi", "Salmonidés", 0, "autres", "hareng de lac, cisco"],
+      ["Ménomini rond", "Prosopium cylindraceum", "Salmonidés", 0, "autres", "round whitefish"],
+      ["Achigan à petite bouche", "Micropterus dolomieu", "Crapets et achigans", 1, "achigan", "achigan, bass, smallmouth"],
+      ["Achigan à grande bouche", "Micropterus salmoides", "Crapets et achigans", 1, "achigan", "achigan, bass, largemouth"],
+      ["Crapet-soleil", "Lepomis gibbosus", "Crapets et achigans", 1, "autres", "crapet, sunfish, pumpkinseed"],
+      ["Crapet de roche", "Ambloplites rupestris", "Crapets et achigans", 1, "autres", "crapet, rock bass"],
+      ["Crapet arlequin", "Lepomis macrochirus", "Crapets et achigans", 0, "autres", "crapet, bluegill"],
+      ["Crapet à longues oreilles", "Lepomis megalotis", "Crapets et achigans", 0, "autres", "crapet, longear"],
+      ["Marigane noire", "Pomoxis nigromaculatus", "Crapets et achigans", 1, "autres", "crapet calicot, black crappie"],
+      ["Perchaude", "Perca flavescens", "Perches et dorés", 1, "perchaude", "perche, yellow perch"],
+      ["Barbotte brune", "Ameiurus nebulosus", "Barbottes et barbues", 1, "autres", "barbotte, bullhead"],
+      ["Barbotte jaune", "Ameiurus natalis", "Barbottes et barbues", 0, "autres", "barbotte, yellow bullhead"],
+      ["Barbue de rivière", "Ictalurus punctatus", "Barbottes et barbues", 1, "autres", "barbue, channel catfish"],
+      ["Lotte", "Lota lota", "Lottes", 1, "autres", "loche, burbot"],
+      ["Poulamon atlantique", "Microgadus tomcod", "Morues", 1, "autres", "petit poisson des chenaux, tomcod"],
+      ["Éperlan arc-en-ciel", "Osmerus mordax", "Éperlans", 1, "eperlan", "éperlan, smelt"],
+      ["Esturgeon jaune", "Acipenser fulvescens", "Esturgeons", 1, "esturgeon", "esturgeon, lake sturgeon"],
+      ["Esturgeon noir", "Acipenser oxyrinchus", "Esturgeons", 0, "esturgeon", "esturgeon, atlantic sturgeon"],
+      ["Bar rayé", "Morone saxatilis", "Bars", 1, "barRaye", "bar, striped bass"],
+      ["Bar blanc", "Morone chrysops", "Bars", 0, "autres", "bar, white bass"],
+      ["Baret", "Morone americana", "Bars", 0, "autres", "white perch"],
+      ["Carpe commune", "Cyprinus carpio", "Ménés et carpes", 1, "autres", "carpe, carp"],
+      ["Malachigan", "Aplodinotus grunniens", "Malachigans", 0, "autres", "freshwater drum"],
+      ["Lépisosté osseux", "Lepisosteus osseus", "Lépisostés", 0, "autres", "poisson armé, gar"],
+      ["Poisson-castor", "Amia calva", "Amiidés", 0, "autres", "choupique, bowfin"],
+      ["Laquaiche argentée", "Hiodon tergisus", "Laquaiches", 0, "autres", "mooneye"],
+      ["Laquaiche aux yeux d'or", "Hiodon alosoides", "Laquaiches", 0, "autres", "goldeye"],
+      ["Anguille d'Amérique", "Anguilla rostrata", "Anguilles", 0, "autres", "anguille, eel"],
+      ["Alose savoureuse", "Alosa sapidissima", "Aloses", 0, "autres", "alose, shad"],
+      ["Alose d'été", "Alosa aestivalis", "Aloses", 0, "autres", "alose, blueback herring"],
+      ["Gaspareau", "Alosa pseudoharengus", "Aloses", 0, "autres", "alewife"],
+      ["Alose à gésier", "Dorosoma cepedianum", "Aloses", 0, "autres", "alose, gizzard shad"],
+      ["Meunier noir", "Catostomus commersonii", "Meuniers et chevaliers", 0, "autres", "meunier, white sucker"],
+      ["Meunier rouge", "Catostomus catostomus", "Meuniers et chevaliers", 0, "autres", "meunier, longnose sucker"],
+      ["Couette", "Carpiodes cyprinus", "Meuniers et chevaliers", 0, "autres", "quillback"],
+      ["Chevalier blanc", "Moxostoma anisurum", "Meuniers et chevaliers", 0, "autres", "chevalier, silver redhorse"],
+      ["Chevalier rouge", "Moxostoma macrolepidotum", "Meuniers et chevaliers", 0, "autres", "chevalier, shorthead redhorse"],
+      ["Chevalier de rivière", "Moxostoma carinatum", "Meuniers et chevaliers", 0, "autres", "chevalier, river redhorse"],
+      ["Chevalier jaune", "Moxostoma valenciennesi", "Meuniers et chevaliers", 0, "autres", "chevalier, greater redhorse"],
+      ["Chevalier cuivré", "Moxostoma hubbsi", "Meuniers et chevaliers", 0, "chevalierCuivre", "chevalier, copper redhorse"],
+      ["Chat-fou brun", "Noturus gyrinus", "Barbottes et barbues", 0, "autres", "tadpole madtom"],
+      ["Chat-fou des rapides", "Noturus flavus", "Barbottes et barbues", 0, "autres", "stonecat"],
+      ["Chat-fou liséré", "Noturus insignis", "Barbottes et barbues", 0, "autres", "margined madtom"],
+      ["Umbre de vase", "Umbra limi", "Umbres", 0, "autres", "central mudminnow"],
+      ["Lamproie marine", "Petromyzon marinus", "Lamproies", 0, "autres", "lamproie, sea lamprey"],
+      ["Lamproie argentée", "Ichthyomyzon unicuspis", "Lamproies", 0, "autres", "lamproie"],
+      ["Lamproie de l'Est", "Lethenteron appendix", "Lamproies", 0, "autres", "lamproie"],
+      ["Lamproie du Nord", "Ichthyomyzon fossor", "Lamproies", 0, "autres", "lamproie"],
+      ["Lamproie brune", "Ichthyomyzon castaneus", "Lamproies", 0, "autres", "lamproie"],
+      ["Carassin", "Carassius auratus", "Ménés et carpes", 0, "autres", "poisson rouge, goldfish"],
+      ["Tanche", "Tinca tinca", "Ménés et carpes", 0, "autres", "tench"],
+      ["Gardon rouge", "Scardinius erythrophthalmus", "Ménés et carpes", 0, "autres", "rotengle, rudd"],
+      ["Méné jaune", "Notemigonus crysoleucas", "Ménés et carpes", 0, "autres", "méné, golden shiner"],
+      ["Ouitouche", "Semotilus corporalis", "Ménés et carpes", 0, "autres", "mulet, fallfish"],
+      ["Mulet à cornes", "Semotilus atromaculatus", "Ménés et carpes", 0, "autres", "mulet, creek chub"],
+      ["Mulet perlé", "Margariscus margarita", "Ménés et carpes", 0, "autres", "mulet, pearl dace"],
+      ["Méné de lac", "Couesius plumbeus", "Ménés et carpes", 0, "autres", "mulet de lac, lake chub"],
+      ["Bec-de-lièvre", "Exoglossum maxillingua", "Ménés et carpes", 0, "autres", "cutlip minnow"],
+      ["Naseux noir", "Rhinichthys atratulus", "Ménés et carpes", 0, "autres", "naseux, blacknose dace"],
+      ["Naseux des rapides", "Rhinichthys cataractae", "Ménés et carpes", 0, "autres", "naseux, longnose dace"],
+      ["Méné émeraude", "Notropis atherinoides", "Ménés et carpes", 0, "autres", "méné, emerald shiner"],
+      ["Méné à tête rose", "Notropis rubellus", "Ménés et carpes", 0, "autres", "méné, rosyface shiner"],
+      ["Méné à nageoires rouges", "Luxilus cornutus", "Ménés et carpes", 0, "autres", "méné, common shiner"],
+      ["Méné ventre-rouge", "Chrosomus eos", "Ménés et carpes", 0, "autres", "méné, northern redbelly dace"],
+      ["Méné ventre-citron", "Chrosomus neogaeus", "Ménés et carpes", 0, "autres", "méné, finescale dace"],
+      ["Tête-de-boule", "Pimephales promelas", "Ménés et carpes", 0, "autres", "méné à grosse tête, fathead minnow"],
+      ["Ventre-pourri", "Pimephales notatus", "Ménés et carpes", 0, "autres", "méné à museau arrondi, bluntnose minnow"],
+      ["Méné laiton", "Hybognathus hankinsoni", "Ménés et carpes", 0, "autres", "méné, brassy minnow"],
+      ["Méné d'argent", "Hybognathus regius", "Ménés et carpes", 0, "autres", "méné, eastern silvery minnow"],
+      ["Méné bleu", "Cyprinella spiloptera", "Ménés et carpes", 0, "autres", "méné, spotfin shiner"],
+      ["Méné à queue tachée", "Notropis hudsonius", "Ménés et carpes", 0, "autres", "méné, spottail shiner"],
+      ["Méné pâle", "Notropis volucellus", "Ménés et carpes", 0, "autres", "méné, mimic shiner"],
+      ["Méné paille", "Notropis stramineus", "Ménés et carpes", 0, "autres", "méné, sand shiner"],
+      ["Méné à menton noir", "Notropis heterodon", "Ménés et carpes", 0, "autres", "méné, blackchin shiner"],
+      ["Méné à museau noir", "Notropis heterolepis", "Ménés et carpes", 0, "autres", "méné, blacknose shiner"],
+      ["Méné d'herbe", "Notropis bifrenatus", "Ménés et carpes", 0, "autres", "méné, bridle shiner"],
+      ["Omisco", "Percopsis omiscomaycus", "Omiscos", 0, "autres", "trout-perch"],
+      ["Crayon d'argent", "Labidesthes sicculus", "Crayons d'argent", 0, "autres", "brook silverside"],
+      ["Fondule barré", "Fundulus diaphanus", "Fondules", 0, "autres", "fondule, banded killifish"],
+      ["Choquemort", "Fundulus heteroclitus", "Fondules", 0, "autres", "mummichog"],
+      ["Épinoche à cinq épines", "Culaea inconstans", "Épinoches", 0, "autres", "épinoche, brook stickleback"],
+      ["Épinoche à neuf épines", "Pungitius pungitius", "Épinoches", 0, "autres", "épinoche"],
+      ["Épinoche à trois épines", "Gasterosteus aculeatus", "Épinoches", 0, "autres", "épinoche"],
+      ["Épinoche tachetée", "Gasterosteus wheatlandi", "Épinoches", 0, "autres", "épinoche"],
+      ["Épinoche à quatre épines", "Apeltes quadracus", "Épinoches", 0, "autres", "épinoche"],
+      ["Chabot de profondeur", "Myoxocephalus thompsonii", "Chabots", 0, "autres", "chabot, deepwater sculpin"],
+      ["Chaboisseau à quatre cornes", "Myoxocephalus quadricornis", "Chabots", 0, "autres", "chabot"],
+      ["Chabot à tête plate", "Cottus ricei", "Chabots", 0, "autres", "chabot"],
+      ["Chabot tacheté", "Cottus bairdii", "Chabots", 0, "autres", "chabot"],
+      ["Chabot visqueux", "Cottus cognatus", "Chabots", 0, "autres", "chabot"],
+      ["Fouille-roche zébré", "Percina caprodes", "Perches et dorés", 0, "autres", "dard, logperch"],
+      ["Fouille-roche gris", "Percina copelandi", "Perches et dorés", 0, "autres", "dard, channel darter"],
+      ["Dard à ventre jaune", "Etheostoma exile", "Perches et dorés", 0, "autres", "dard"],
+      ["Dard de sable", "Ammocrypta pellucida", "Perches et dorés", 0, "autres", "dard"],
+      ["Raseux-de-terre noir", "Etheostoma nigrum", "Perches et dorés", 0, "autres", "dard"],
+      ["Raseux-de-terre gris", "Etheostoma olmstedi", "Perches et dorés", 0, "autres", "dard"],
+      ["Dard barré", "Etheostoma flabellare", "Perches et dorés", 0, "autres", "dard"],
+      ["Dard arc-en-ciel", "Etheostoma caeruleum", "Perches et dorés", 0, "autres", "dard"],
+      ["Gobie à taches noires", "Neogobius melanostomus", "Gobies", 0, "autres", "gobie, round goby"],
+      ["Espèce inconnue", "—", "—", 1, "autres", "inconnu, autre"]
+    ];
+
+    // Fishing regulations, season 2026-2027 (source: peche.faune.gouv.qc.ca, checked 2026-11-06).
+    const R = (key, name, from, to, limit, o) => Object.assign({ key: key, name: name, from: from, to: to, limit: limit }, o || {});
+    const LIGNE = "Pêche à la ligne seulement";
+    const z13 = [
+      R("perchaude", "Perchaude", "2026-04-01", "2027-03-31", "50"),
+      R("autres", "Autres espèces", "2026-04-01", "2027-03-31", "aucune"),
+      R("omble", "Ombles (omble chevalier, omble de fontaine)", "2026-04-23", "2026-09-15", "10 au total"),
+      R("truiteBF", "Truite fardée et truite brune", "2026-04-23", "2026-09-15", "5 au total"),
+      R("touladi", "Touladi et truite moulac", "2026-04-23", "2026-09-15", "1 au total", { min: 45, note: LIGNE + " · 2 au total en territoire structuré" }),
+      R("arc", "Truite arc-en-ciel", "2026-04-23", "2026-09-15", "10 au total"),
+      R("brochet", "Brochets", "2026-05-15", "2027-03-31", "6 au total"),
+      R("dore", "Doré jaune et doré noir", "2026-05-15", "2027-03-31", "6 au total", { min: 32, max: 47, sizeWho: "Doré jaune", sizeExtra: "doré noir : aucune limite de longueur", onlySp: "Doré jaune", note: LIGNE }),
+      R("esturgeon", "Esturgeons", "2026-06-15", "2026-10-31", "1", { note: LIGNE }),
+      R("achigan", "Achigans", "2026-06-15", "2027-03-31", "6 au total")
+    ];
+    const z13winter = [
+      "Jusqu'à 5 lignes sur un même plan d'eau, couvert de glace ou non, du 1er décembre au 15 avril (2 lignes aux lacs Clarice et Raven).",
+      "Poissons appâts morts permis du 1er décembre au 15 avril, sauf au parc national d'Aiguebelle et dans les zecs Dumoine et Maganasipi."
+    ];
+    this.REG = {
+      "13O": {
+        closed: ["Chevalier cuivré"], rows: z13, winter: z13winter,
+        kipawa: { dore: { min: 37, max: 53 }, touladi: { min: 65, gt: true, limit: "1" } },
+        exc: ["Baie de Kipawa", "Ruisseau Collin", "Lac à la Truite (Simard)", "Lac à l'Eau Claire", "Lac Abitibi", "Lac Ab-Rono", "Lac Aldor", "Lac Aubry", "Lac aux Sables", "Lac Bat", "Lac Bellisle", "Lac Berry", "Lac Black", "Lac Bois-Franc (Booth)", "Lac Burden", "Lac Castagnier", "Lac Choquette", "Lac Clair", "Lac Clément", "Lac de la Petite Prairie", "Lac Déry", "Lac des Bois", "Lac des Sœurs", "Lac Despériers", "Lac du Grand Couteau (Galt)", "Lac du Moulin", "Lac en Cœur", "Lac Florentien", "Lac Gordon (à la Truite)", "Grand lac Georges", "Lac Grant", "Lac Guay", "Lac Hector", "Lac Kipawa (chute Turtle)", "Lac Laniel 1", "Lac Laniel 2", "Lac Laperrière", "Lac Marin", "Lac Memewin", "Lac Moran (canton Laperrière)", "Lac Noranda", "Petit lac George", "Petit lac Long", "Lac Petit Otter", "Lac Plassez", "Lac Rousselot", "Lac Saint-Amand", "Lac Smith", "Lac Tee", "Lacs sans nom (plusieurs)", "Lac sans nom (Aubé)", "Lac sans nom (de la Ville)", "Lac sans nom (des pompiers)", "Lac Villedonne", "Lac Windy", "Parc national d'Aiguebelle", "Réservoir Decelles, rapide 16", "Réservoir Kipawa – lac Audoin", "Réservoir Kipawa", "Rivière Barrière", "Rivière Castagnier", "Rivière Kipawa (canton Booth)", "Rivière La Sarre", "Réserve faunique La Vérendrye", "Zec Dumoine", "Zec Kipawa", "Zec Maganasipi", "Zec Restigo"]
+      },
+      "13E": {
+        closed: ["Chevalier cuivré"], rows: z13, winter: z13winter,
+        exc: ["Lac Amyot", "Lac Augier", "Lac Barthou", "Lac Cavendish", "Lac Clair (canton Senneterre)", "Lac Clais", "Lac Cuillère", "Lac Denain", "Lac des Terrasses", "Lac Desforges", "Lac Draper", "Lac Hoswart", "Lac Matchi-Manitou", "Lac Rioux", "Lac Wyeth (canton Louvicourt)", "Lac Ypres", "Lac Yser", "Lacs sans nom (8)", "Rivière Delestres (partie)", "Zec Capitachouane", "Zec Festubert"]
+      },
+      "3": {
+        closed: ["Saumon atlantique", "Chevalier cuivré", "Éperlan arc-en-ciel", "Bar rayé"], winter: null, exc: [],
+        rows: [
+          R("omble", "Ombles (omble chevalier, omble de fontaine)", "2026-04-23", "2026-09-15", "10 au total"),
+          R("truiteBF", "Truite fardée et truite brune", "2026-04-23", "2026-09-15", "5 au total"),
+          R("touladi", "Touladi et truite moulac", "2026-04-23", "2026-09-15", "1 au total", { min: 60, note: LIGNE + " · 2 au total en territoire structuré" }),
+          R("ouananiche", "Ouananiche", "2026-04-23", "2026-09-15", "3", { note: LIGNE }),
+          R("arc", "Truite arc-en-ciel", "2026-04-23", "2026-09-15", "aucune"),
+          R("perchaude", "Perchaude", "2026-04-23", "2026-11-30", "50"),
+          R("autres", "Autres espèces", "2026-04-23", "2026-11-30", "aucune"),
+          R("brochet", "Brochets", "2026-05-15", "2026-11-30", "6 au total"),
+          R("dore", "Doré jaune et doré noir", "2026-05-15", "2026-11-30", "6 au total", { min: 37, max: 53, sizeWho: "Doré jaune", sizeExtra: "doré noir : aucune limite de longueur", onlySp: "Doré jaune", note: LIGNE }),
+          R("esturgeon", "Esturgeons", "2026-06-15", "2026-10-31", "1", { note: LIGNE }),
+          R("achigan", "Achigans", "2026-06-15", "2026-11-30", "6 au total"),
+          R("maskinonge", "Maskinongé et maskinongé tigre", "2026-06-15", "2026-11-30", "2", { note: LIGNE })
+        ]
+      }
+    };
+
+    this.state = {
+      screen: "carnet",
+      units: "imperial",
+      temp: "C",
+      water: "",
+      gear: "Jig 1/4 oz + ver",
+      bait: "ver",
+      baitSp: "Méné (cyprin)",
+      hooks: 1,
+      lines: 1,
+      flyOnly: false,
+      tips: [{ d: 4.5, b: "Ménés morts", f: false }, { d: 6, b: "Ménés morts", f: true }, { d: 3, b: "Ver", f: false }, { d: 8, b: "Ménés morts", f: false }],
+      geCat: "Leurres", geType: "", geName: "", geF: {}, geValue: "", geDate: "", geToExp: true, geMore: false,
+      geNotes: "", geSerial: "", geCustom: [], geRem: true, gearExtra: [],
+      exps: [
+        { cat: "Carburant", amt: 120, note: "Auto", date: "11 oct." },
+        { cat: "Carburant", amt: 78, note: "Bateau · Lac Kipawa", date: "11 oct." },
+        { cat: "Pourvoirie", amt: 160, note: "2 nuits · total 320 $ partagé à 2", date: "27 sept." },
+        { cat: "Équipement", amt: 52, note: "Jigs et cuillères", date: "20 sept." },
+        { cat: "Appâts", amt: 22, note: "Vers", date: "10 sept." },
+        { cat: "Permis", amt: 54, note: "Pêche sportive · annuel", date: "1er avr." }
+      ],
+      maints: [
+        { id: 1, task: "Graisser et huiler", gear: "Moulinet à traîne avec compteur", mode: "time", n: 6, unit: "mois", last: "2026-04-25", notif: true, remind: "1 semaine avant", cost: "", costExp: false, doneToday: false },
+        { id: 2, task: "Changer le fil", gear: "Moulinet lancer léger 2500", mode: "usage", n: 20, unit: "sorties", count: 17, notif: true, remind: "", cost: "18", costExp: true, doneToday: false },
+        { id: 3, task: "Aiguiser les hameçons", gear: "Boîte de jigs", mode: "season", season: "Avant la pêche blanche", last: "2025-11-30", notif: true, remind: "1 semaine avant", cost: "", costExp: false, doneToday: false },
+        { id: 4, task: "Hivernage (stabilisant, vidange)", gear: "Moteur hors-bord 9,9 HP", mode: "season", season: "Fin de saison", last: "2025-10-20", notif: true, remind: "1 semaine avant", cost: "85", costExp: true, doneToday: false },
+        { id: 5, task: "Vérifier les anneaux", gear: "Canne lancer léger 6 pi 6", mode: "season", season: "Avant l'ouverture", last: "2026-04-10", notif: false, remind: "", cost: "", costExp: false, doneToday: false }
+      ],
+      bkLast: "2026-10-02", bkPhotos: true, bkPwOn: false, bkPw: "", bkMade: false, bkRemind: "Tous les 30 jours", rsStage: "idle",
+      csvSel: { "Prises": true, "Dépenses": true, "Équipement": false, "Entretiens": false }, expMsg: "",
+      meGear: "Moulinet à traîne avec compteur", meTask: "", meTaskOther: "", meMode: "time", meN: 6, meUnit: "mois", meUsageUnit: "sorties",
+      meSeason: "Avant la pêche blanche", meDate: "", meNotif: true, meRemind: "1 semaine avant", meCost: "", meCostExp: true, meNotes: "",
+      deAmt: "", deCat: "Carburant", deSub: "", deText: "", deDate: "", deTrip: "Aucune", deSplit: 1, deNote: "",
+      depthIn: null,
+      fishDepth: "",
+      iceLake: "Réservoir Kipawa",
+      sessDate: "01-15",
+      zoneMode: "auto",
+      zone: "13O",
+      spQuery: "",
+      excAll: false,
+      prevMain: "carnet",
+      filter: "Toutes",
+      species: "Doré jaune",
+      length: "",
+      weight: "",
+      tech: "Lancer",
+      released: false,
+      gearTab: "Cannes",
+      flags: [false, true, false, false, false, false],
+      maintDone: [false, false, true, false],
+      catches: [
+        { species: "Doré jaune", group: "Doré", len: 52, kg: 1.6, dm: 6.5, lake: "Lac Kipawa", when: "11 oct. · 6 h 40", lure: "Jig 1/4 oz + ver · Jig", tint: "#2E6B6E", released: false },
+        { species: "Touladi", group: "Touladi", len: 64, kg: 2.9, dm: 18, lake: "Lac Témiscamingue", when: "4 oct. · 9 h 15", lure: "Cuillère ondulante · Traîne", tint: "#5E97C9", released: true },
+        { species: "Grand brochet", group: "Brochet", len: 71, kg: 2.4, dm: 3.5, lake: "Lac Kipawa", when: "28 sept. · 18 h 05", lure: "Poisson-nageur articulé · Lancer", tint: "#3F5B3A", released: true },
+        { species: "Achigan à petite bouche", group: "Achigan", len: 41, kg: 1.1, dm: 4, lake: "Lac Simard", when: "21 sept. · 7 h 30", lure: "Tube 3 po · Lancer", tint: "#6B5A2E", released: true },
+        { species: "Perchaude", group: "Autre", len: 24, kg: 0.2, dm: 2.5, lake: "Lac Témiscamingue", when: "14 sept. · 15 h 20", lure: "Ver · Fond", tint: "#7A4A2A", released: false }
+      ]
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const sc = s.screen;
+    // Data is stored in SI (cm, kg, m, °C); only display converts.
+    const imp = s.units === "imperial", fahr = s.temp === "F";
+    const num = (n, d) => n.toFixed(d).replace(".", ",").replace(/,0+$/, "").replace("-", "−");
+    const parse = (v) => parseFloat(String(v).replace(",", ".")) || 0;
+    const fmtLen = (cm) => imp ? num(cm / 2.54, 1) + " po" : num(cm, 0) + " cm";
+    const fmtW = (kg) => imp ? num(kg * 2.20462, 1) + " lb" : num(kg, 1) + " kg";
+    const fmtDepth = (m) => imp ? num(m * 3.28084, 0) + " pi" : num(m, 1) + " m";
+    const fmtIce = (cm) => imp ? num(cm / 2.54, 0) + " po" : num(cm, 0) + " cm";
+    const fmtT = (c) => fahr ? num(c * 9 / 5 + 32, 0) + " °F" : num(c, 0) + " °C";
+    // Example species photos (iNaturalist, CC BY / public domain), mapped to CSS classes in <helmet>.
+    const PH = { "Doré jaune": ["ph-dore", "50% 50%"], "Touladi": ["ph-touladi", "50% 45%"], "Grand brochet": ["ph-brochet", "50% 50%"], "Achigan à petite bouche": ["ph-achigan", "50% 50%"], "Perchaude": ["ph-perchaude", "50% 50%"] };
+    const phOf = (sp) => { const p = PH[sp]; return p ? { phClass: p[0], phPos: p[1], noPhoto: false, alt: "Photo : " + sp } : { phClass: "", phPos: "center", noPhoto: true, alt: "Pas de photo" }; };
+    const sizeOf = (c) => (c.len ? fmtLen(c.len) : "—") + " · " + (c.kg ? fmtW(c.kg) : "—");
+    // Depth prefill: official bathymetry (GBLQ isobaths, embedded) at the GPS point. Preview: Réservoir Kipawa.
+    // Real app: null when the water body is not covered -> the field stays empty.
+    const bathyM = 6.2;
+    const toUnitDepth = (m) => imp ? String(Math.round(m * 3.28084)) : String(Math.round(m * 10) / 10);
+    const userDepth = s.depthIn !== null && s.depthIn !== "";
+    const depthSrc = userDepth
+      ? { tag: "SAISIE", text: "Valeur entrée par vous.", bg: "rgba(255,255,255,0.07)", fg: "#EEF5F4", bd: "#EEF5F4" }
+      : { tag: "BATHYMÉTRIE", text: "Estimée au point GPS d'après les isobathes officielles (± 1 m). Le niveau du réservoir varie : corrigez au besoin.", bg: "rgba(127,214,202,0.13)", fg: "#9FE6DB", bd: "#2E6B6E" };
+    const dnum = (m) => imp ? num(m * 3.28084, 0) : num(m, 0);
+    const byDepth = [[0, 3, 4, "perchaude"], [3, 6, 8, "doré"], [6, 9, 6, "doré"], [9, 12, 3, "brochet"], [12, null, 2, "touladi"]]
+      .map((b) => ({ label: b[1] === null ? fmtDepth(b[0]) + " et +" : dnum(b[0]) + "–" + fmtDepth(b[1]), n: b[2], pct: Math.round(b[2] / 8 * 100), top: "surtout " + b[3] }));
+    const seg = (opts, cur, set) => opts.map((o) => {
+      const on = o[0] === cur;
+      return { label: o[1], hint: o[2], on: on ? "true" : "false", pick: () => set(o[0]),
+        bg: on ? "#EAF6F3" : "rgba(255,255,255,0.05)", fg: on ? "#0B2228" : "#EEF5F4", sub: on ? "#35504F" : "#A9BDB9" };
+    });
+    const go = (x) => () => this.setState({ screen: x, prevMain: (sc === "zone" || sc === "regl") ? s.prevMain : sc });
+    const sub = { ajout: "carnet", equip: "plus", entretien: "plus", depenses: "plus", reglages: "plus", ajoutEquip: "equip", ajoutDep: "depenses", ajoutEnt: "entretien", sauvegarde: "plus" };
+    const titles = { carnet: "Mon carnet", ajout: "Nouvelle prise", carte: "Carte hors ligne", stats: "Statistiques", glace: "Pêche blanche", plus: "Plus", equip: "Équipement", entretien: "Entretien", depenses: "Dépenses", reglages: "Réglages", zone: "Zone de pêche", regl: "Règlements", ajoutEquip: "Nouvel article", ajoutDep: "Nouvelle dépense", ajoutEnt: "Nouvel entretien", sauvegarde: "Sauvegarde et export" };
+    const pill = (on) => on
+      ? { bg: "#EAF6F3", fg: "#0B2228", bd: "#EAF6F3" }
+      : { bg: "rgba(255,255,255,0.06)", fg: "#EEF5F4", bd: "rgba(255,255,255,0.24)" };
+
+    const tabOf = sub[sc] || ((sc === "zone" || sc === "regl") ? (sub[s.prevMain] || s.prevMain) : sc);
+    const ON = "#FF9466", OFF = "#A9BDB9";
+    const tc = { carnet: OFF, carte: OFF, stats: OFF, glace: OFF, plus: OFF };
+    tc[tabOf] = ON;
+
+    const chips = ["Toutes", "Doré", "Touladi", "Brochet", "Achigan"].map((f) =>
+      Object.assign({ label: f, pick: () => this.setState({ filter: f }) }, pill(f === s.filter)));
+    const shown = (s.filter === "Toutes" ? s.catches : s.catches.filter((c) => c.group === s.filter))
+      .map((c) => Object.assign({}, c, phOf(c.species), { size: sizeOf(c) + (c.dm ? " · fond " + fmtDepth(c.dm) : "") }));
+    const used = s.catches.length + 7;
+
+    const techs = ["Lancer", "Traîne", "Jig vertical", "Mouche", "Fond", "Dandinette (glace)", "Brimbale (glace)"].map((t) =>
+      Object.assign({ label: t, pick: () => this.setState({ tech: t }) }, pill(t === s.tech)));
+
+    const groupOf = (sp) => { const r = (this.SP.find((x) => x[0] === sp) || [])[4]; return r === "dore" ? "Doré" : r === "touladi" ? "Touladi" : r === "brochet" ? "Brochet" : r === "achigan" ? "Achigan" : "Autre"; };
+    const tints = ["#2E6B6E", "#5E97C9", "#3F5B3A", "#6B5A2E", "#7A4A2A"];
+
+    const save = () => {
+      const c = {
+        species: s.species, group: groupOf(s.species),
+        len: imp ? parse(s.length) * 2.54 : parse(s.length),
+        dm: userDepth ? (imp ? parse(s.depthIn) / 3.28084 : parse(s.depthIn)) : bathyM,
+        kg: imp ? parse(s.weight) / 2.20462 : parse(s.weight),
+        waterC: s.water === "" ? null : (fahr ? (parse(s.water) - 32) * 5 / 9 : parse(s.water)),
+        lake: "Lac Kipawa", when: "Aujourd’hui · 16 h 52",
+        lure: s.gear + " · " + s.tech,
+        tint: tints[s.catches.length % tints.length], released: s.released
+      };
+      this.setState({ catches: [c].concat(s.catches), screen: "carnet", filter: "Toutes", length: "", weight: "", water: "", released: false, depthIn: null, fishDepth: "" });
+    };
+
+    const tipData = [[4.5, "Ménés morts"], [6, "Ménés morts"], [3, "Ver"], [8, "Ménés morts"], [5, "Cuillère + ménés morts"], [2.5, "Ver"]];
+    const tipupsLegacy = tipData.map((d, i) => {
+      const f = s.flags[i];
+      return {
+        label: "B" + (i + 1), status: f ? "Touche !" : "En attente", depth: "Profondeur " + fmtDepth(d[0]), bait: d[1],
+        bg: f ? "#C24F1C" : "#FFFFFF", fg: f ? "#FFFFFF" : "#EEF5F4", bd: f ? "#C24F1C" : "rgba(255,255,255,0.22)",
+        toggle: () => { const n = s.flags.slice(); n[i] = !n[i]; this.setState({ flags: n }); }
+      };
+    });
+
+    const gear = {
+      Cannes: [
+        { name: "Canne lancer léger 6 pi 6", meta: "Action moyenne-légère · 2 sections", used: "Utilisée pour 11 prises", value: "140 $" },
+        { name: "Canne à traîne 8 pi", meta: "Action moyenne · fil plombé", used: "Utilisée pour 3 prises", value: "120 $" },
+        { name: "Canne de glace 28 po", meta: "Pêche blanche", used: "Utilisée pour 4 prises", value: "45 $" }
+      ],
+      Moulinets: [
+        { name: "Moulinet lancer léger 2500", meta: "Tresse 10 lb + bas de ligne fluoro", used: "Fil changé le 2 juin", value: "110 $" },
+        { name: "Moulinet à traîne avec compteur", meta: "Fil plombé 18 lb", used: "Graissage en retard", value: "160 $" }
+      ],
+      Leurres: [
+        { name: "Jig 1/4 oz tête ronde", meta: "Chartreuse · lot de 10", used: "7 dorés", value: "18 $" },
+        { name: "Cuillère ondulante", meta: "Argent et rouge", used: "2 touladis", value: "9 $" },
+        { name: "Poisson-nageur articulé", meta: "Perchaude · 11 cm", used: "3 brochets", value: "22 $" }
+      ]
+    };
+    const gearTabs = ["Cannes", "Moulinets", "Fils", "Leurres", "Petit matériel", "Pêche blanche", "Électronique", "Embarcation", "Accessoires"].map((g) =>
+      Object.assign({ label: g, pick: () => this.setState({ gearTab: g }) }, pill(g === s.gearTab)));
+
+    // --- Species search ---
+    const norm = (t) => String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    const q = norm(s.spQuery.trim());
+    const pool = q
+      ? this.SP.filter((x) => norm(x[0] + " " + x[5] + " " + x[1]).indexOf(q) >= 0).slice(0, 12)
+      : this.SP.filter((x) => x[3] === 1);
+    const spResults = pool.map((x) => Object.assign({ fr: x[0], pick: () => this.setState({ species: x[0], spQuery: "" }) }, pill(x[0] === s.species)));
+    const spRow = this.SP.find((x) => x[0] === s.species) || this.SP[0];
+
+    // --- Zones & regulations ---
+    const ZONES = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13E", "13O", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"];
+    const zLabel = (id) => "Zone " + id.replace("E", " Est").replace("O", " Ouest");
+    const zoneId = s.zoneMode === "auto" ? "13O" : s.zone;
+    const zr = this.REG[zoneId];
+    const today = new Date().toISOString().slice(0, 10);
+    const MO = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+    const fmtD = (iso) => { const p = iso.split("-"); const d = +p[2]; return (d === 1 ? "1er" : d) + " " + MO[+p[1] - 1] + " " + p[0]; };
+    const isOpen = (r) => today >= r.from && today <= r.to;
+    const sizeText = (r) => {
+      if (!r.min && !r.max) return "";
+      const cm = (v) => num(v, 0) + " cm";
+      const range = r.max ? fmtLen(r.min) + " à " + fmtLen(r.max) + " inclusivement" : (r.gt ? "plus de " + fmtLen(r.min) : fmtLen(r.min) + " et plus");
+      const official = !imp ? "" : " (" + (r.max ? cm(r.min) + " à " + cm(r.max) : (r.gt ? "plus de " : "") + cm(r.min) + (r.gt ? "" : " et plus")) + ")";
+      return (r.sizeWho ? r.sizeWho + " : " : "") + range + official + (r.sizeExtra ? " · " + r.sizeExtra : "");
+    };
+    const reglRows = !zr ? [] : zr.rows.map((r) => {
+      const open = isOpen(r), soon = today < r.from, st = sizeText(r);
+      return { name: r.name, open: open, period: "Du " + fmtD(r.from) + " au " + fmtD(r.to), limit: "Limite : " + r.limit,
+        size: st, hasSize: !!st, note: r.note || "", hasNote: !!r.note,
+        badge: open ? "Ouverte" : (soon ? "Ouvre le " + fmtD(r.from) : "Fermée"),
+        badgeBg: open ? "#2E6B6E" : "rgba(255,255,255,0.06)", badgeFg: open ? "#FFFFFF" : "#A9BDB9", badgeBd: open ? "#4FA39C" : "rgba(255,255,255,0.3)" };
+    }).sort((a, b) => (a.open === b.open ? 0 : a.open ? -1 : 1));
+    const exc = zr ? zr.exc : [];
+    const excShown = (s.excAll ? exc : exc.slice(0, 8)).map((n) => ({ name: n }));
+
+    // --- Live compliance check for the catch form ---
+    const lenCm = imp ? parse(s.length) * 2.54 : parse(s.length);
+    const OK = { bd: "#2E6B6E", bg: "rgba(127,214,202,0.13)", fg: "#9FE6DB" }, WARN = { bd: "#C24F1C", bg: "rgba(226,104,58,0.16)", fg: "#FFB08A" }, INFO = { bd: "rgba(255,255,255,0.22)", bg: "rgba(255,255,255,0.07)", fg: "#A9BDB9" };
+    let rule;
+    if (!zr) {
+      rule = Object.assign({ head: zLabel(zoneId).toUpperCase(), line1: "Règlements non intégrés à l'aperçu", line2: "Consultez la source officielle." }, INFO);
+    } else if (zr.closed.indexOf(spRow[0]) >= 0) {
+      rule = Object.assign({ head: zLabel(zoneId).toUpperCase(), line1: "Pêche interdite pour cette espèce", line2: "Remise à l'eau obligatoire." }, WARN);
+    } else {
+      const base = zr.rows.find((r) => r.key === spRow[4]) || zr.rows.find((r) => r.key === "autres");
+      const over = zr.kipawa && zr.kipawa[base.key];
+      const eff = over ? Object.assign({}, base, over) : base;
+      const head = over ? "RÉSERVOIR KIPAWA · RÈGLE PARTICULIÈRE" : zLabel(zoneId).toUpperCase() + " · RÈGLE GÉNÉRALE";
+      const sizeApplies = !!(eff.min || eff.max) && (!eff.onlySp || eff.onlySp === spRow[0]);
+      const sizeTxt = sizeApplies ? sizeText(Object.assign({}, eff, { sizeWho: "", sizeExtra: "" })) : "";
+      if (!isOpen(eff)) {
+        rule = Object.assign({ head: head, line1: "Pêche fermée pour cette espèce", line2: (today < eff.from ? "Ouverture le " + fmtD(eff.from) : "Fermée depuis le " + fmtD(eff.to)) + " · remise à l'eau obligatoire." }, WARN);
+      } else if (sizeApplies && lenCm > 0) {
+        const fits = (eff.gt ? lenCm > eff.min : lenCm >= eff.min) && (!eff.max || lenCm <= eff.max);
+        rule = fits
+          ? Object.assign({ head: head, line1: "Peut être gardé", line2: "Taille permise : " + sizeTxt + " · limite : " + eff.limit }, OK)
+          : Object.assign({ head: head, line1: "Hors de la taille permise", line2: "Remise à l'eau obligatoire · taille permise : " + sizeTxt }, WARN);
+      } else {
+        rule = Object.assign({ head: head, line1: "Pêche ouverte · limite : " + eff.limit, line2: sizeApplies ? "Taille à garder : " + sizeTxt : (eff.note || "Aucune restriction de taille.") }, INFO);
+      }
+    }
+
+    // --- Gear & bait watch: province-wide rules + zone gear rules (zone 13 only in this preview) ---
+    const md = today.slice(5);
+    // Winter gear rules per zone (preview: zones 3, 10, 13 Est, 13 Ouest).
+    const Z13G = { winterLines: 5, deadBait: true, from: "12-01", to: "04-15", deadExcl: "sauf au parc national d'Aiguebelle et dans les zecs Dumoine et Maganasipi", lakes: { "Lac Clarice": 2, "Lac Raven": 2 } };
+    const GEAR = {
+      "13O": Z13G, "13E": Z13G,
+      "3": { winterLines: 5, deadBait: false, from: "12-20", to: "03-31" },
+      "10": { winterLines: 5, deadBait: true, from: "12-20", to: "03-31", deadExcl: "sauf dans la réserve faunique Papineau-Labelle" }
+    };
+    const zg = GEAR[zoneId] || null;
+    const MOF = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+    const fmtMD = (x) => { const p = x.split("-"); const d = +p[1]; return (d === 1 ? "1er" : d) + " " + MOF[+p[0] - 1]; };
+    const winTxt = zg ? "du " + fmtMD(zg.from) + " au " + fmtMD(zg.to) : "";
+    const inWin = (m) => !!zg && (zg.from > zg.to ? (m >= zg.from || m <= zg.to) : (m >= zg.from && m <= zg.to));
+    const lakeMax = (lake) => (zg && zg.lakes && zg.lakes[lake]) || null;
+    const allowedLines = (m, lake) => !zg ? null : (inWin(m) ? (lakeMax(lake) || zg.winterLines) : 1);
+    const auLac = (lake) => " au " + lake.charAt(0).toLowerCase() + lake.slice(1);
+    const winterNow = inWin(md);
+    const BAD = { tag: "INTERDIT", bg: "#C24F1C", fg: "#FFFFFF", bd: "#C24F1C" };
+    const GOOD = { tag: "PERMIS", bg: "#2E6B6E", fg: "#FFFFFF", bd: "#2E6B6E" };
+    const CHECK = { tag: "À VÉRIFIER", bg: "rgba(255,255,255,0.07)", fg: "#A9BDB9", bd: "rgba(255,255,255,0.35)" };
+    const it = (k, text) => Object.assign({ text: text }, k);
+    const baitCheck = (bait, baitSp, flyOnly, win) => {
+      const w = win === undefined ? winterNow : win;
+      if (bait === "vivant") return it(BAD, "Poissons appâts vivants interdits partout au Québec depuis le 1er avril 2017, même en pêche blanche.");
+      if (bait === "mort" || bait === "oeufs") {
+        const pre = bait === "oeufs" ? "Les œufs de poisson comptent comme poissons appâts. " : "";
+        if (flyOnly) return it(BAD, pre + "Plan d'eau réservé à la mouche : aucun appât.");
+        if (bait === "mort" && baitSp === "Perchaude") return it(BAD, "La perchaude ne peut pas servir d'appât, comme le brochet, le doré, les truites et l'esturgeon.");
+        if (!zg) return it(CHECK, pre + "Règles d'appâts de cette zone non intégrées à l'aperçu.");
+        if (!zg.deadBait) return it(BAD, pre + "Poissons appâts morts interdits dans cette zone.");
+        return w
+          ? it(GOOD, pre + "Poissons appâts morts permis " + winTxt + " dans cette zone" + (zg.deadExcl ? ", " + zg.deadExcl : "") + ".")
+          : it(BAD, pre + "Poissons appâts morts permis seulement " + winTxt + " dans cette zone.");
+      }
+      if (bait === "ver") return flyOnly ? it(BAD, "Plan d'eau réservé à la mouche : appâts naturels interdits.") : it(GOOD, "Vers, sangsues et insectes permis, sauf indication contraire sur place.");
+      if (bait === "leurre") return flyOnly ? it(BAD, "Plan d'eau réservé à la mouche : seules les mouches non lestées sont permises.") : it(GOOD, "Leurre artificiel permis.");
+      if (bait === "mouche") return it(GOOD, flyOnly ? "Mouche permise : non appâtée, non lestée, 2 mouches au maximum." : "Mouche permise.");
+      return it(CHECK, "Appât naturel : assurez-vous qu'il ne s'agit pas d'un poisson ou d'une partie de poisson.");
+    };
+    const hookCheck = (n, flyOnly) => {
+      const max = flyOnly ? 2 : 3, what = flyOnly ? "mouche" : "hameçon";
+      return n > max
+        ? it(BAD, n + " " + what + "s : maximum " + max + " par ligne.")
+        : it(GOOD, n + " " + what + (n > 1 ? "s" : "") + " sur la ligne (maximum " + max + ").");
+    };
+    const lineCheck = (n, mdx, lake) => {
+      const m = mdx || md;
+      if (!zg) return n > 1 ? it(CHECK, "Nombre de lignes d'hiver de cette zone non intégré à l'aperçu.") : it(GOOD, "1 ligne, sous surveillance constante.");
+      if (!inWin(m)) return n > 1 ? it(BAD, n + " lignes : hors de la période d'hiver (" + winTxt + "), une seule ligne à la fois, sous surveillance constante.") : it(GOOD, "1 ligne, sous surveillance constante.");
+      const max = allowedLines(m, lake), where = lakeMax(lake) ? auLac(lake) : " dans cette zone";
+      return n > max
+        ? it(BAD, n + " lignes : maximum " + max + where + ", " + winTxt + ".")
+        : it(GOOD, n + " ligne" + (n > 1 ? "s" : "") + " : jusqu'à " + max + " permises" + where + ", " + winTxt + ".");
+    };
+    const verdictOf = (items) => {
+      const bad = items.filter((x) => x.tag === "INTERDIT").length;
+      return bad
+        ? Object.assign({ verdict: bad + (bad > 1 ? " problèmes à corriger" : " problème à corriger") }, WARN)
+        : Object.assign({ verdict: "Montage conforme aux règles générales" }, OK);
+    };
+    const vgItems = [baitCheck(s.bait, s.baitSp, s.flyOnly), hookCheck(s.hooks, s.flyOnly), lineCheck(s.lines)];
+    const vg = Object.assign({ items: vgItems }, verdictOf(vgItems));
+    // Ice session: slots follow the zone, the period and the water body.
+    const sessMd = s.sessDate === "today" ? md : s.sessDate;
+    const sessWin = inWin(sessMd);
+    const iceMax = allowedLines(sessMd, s.iceLake);
+    const gvItems = [lineCheck(s.tips.length, sessMd, s.iceLake)];
+    if (s.tips.some((t) => /morts/.test(t.b))) gvItems.push(baitCheck("mort", "Méné (cyprin)", false, sessWin));
+    if (s.tips.some((t) => /^Ver/.test(t.b))) gvItems.push(baitCheck("ver", "", false, sessWin));
+    const gv = Object.assign({ items: gvItems }, verdictOf(gvItems));
+    const tipups = s.tips.map((t, i) => {
+      const over = iceMax !== null && i >= iceMax, f = t.f;
+      return {
+        label: "B" + (i + 1), status: over ? "Hors limite" : (f ? "Touche !" : "En attente"),
+        depth: "Profondeur " + fmtDepth(t.d), bait: t.b,
+        bg: over ? "rgba(226,104,58,0.16)" : (f ? "#C24F1C" : "rgba(255,255,255,0.07)"), fg: over ? "#FFB08A" : (f ? "#FFFFFF" : "#EEF5F4"), bd: over ? "#C24F1C" : (f ? "#C24F1C" : "rgba(255,255,255,0.22)"),
+        aria: "Brimbale " + (i + 1) + (over ? ", hors limite, à retirer" : f ? ", touche" : ", en attente"),
+        toggle: () => { const n = s.tips.slice(); n[i] = Object.assign({}, t, { f: !t.f }); this.setState({ tips: n }); },
+        remove: () => this.setState({ tips: s.tips.filter((_, j) => j !== i) })
+      };
+    });
+    const canAddTip = iceMax !== null && s.tips.length < iceMax;
+    const addTip = () => { if (canAddTip) this.setState({ tips: s.tips.concat([{ d: 4, b: "Ver", f: false }]) }); };
+    const emptySlots = [];
+    for (let k = s.tips.length; k < (iceMax || 0); k++) emptySlots.push({ label: "B" + (k + 1), add: addTip });
+    const iceInfo = !zg
+      ? "Règles d'hiver de cette zone non intégrées à l'aperçu : vérifiez la source officielle."
+      : sessWin
+        ? iceMax + " lignes permises" + (lakeMax(s.iceLake) ? auLac(s.iceLake) : " dans la " + zLabel(zoneId).replace("Zone", "zone")) + ", " + winTxt + "."
+        : "Hors de la période d'hiver (" + winTxt + ") : une seule ligne, sous surveillance constante.";
+    const GEAR_OPTS = {
+      "Jig 1/4 oz + ver": { bait: "ver", hooks: 1 },
+      "Cuillère ondulante": { bait: "leurre", hooks: 1 },
+      "Poisson-nageur articulé (2 hameçons triples)": { bait: "leurre", hooks: 2 },
+      "Ménés morts": { bait: "mort", hooks: 1, baitSp: "Méné (cyprin)" },
+      "Mouche sèche": { bait: "mouche", hooks: 1 },
+      "Autre montage": {}
+    };
+    const baitOpts = [["leurre", "Leurre artificiel"], ["mouche", "Mouche"], ["ver", "Ver, sangsue, insecte"], ["mort", "Poisson appât mort"], ["vivant", "Poisson appât vivant"], ["oeufs", "Œufs (rogue)"], ["autre", "Autre appât naturel"]]
+      .map((b) => Object.assign({ label: b[1], on: b[0] === s.bait ? "true" : "false", pick: () => this.setState({ bait: b[0] }) }, pill(b[0] === s.bait)));
+
+    // --- Add gear: category -> type -> brand/model -> 1-4 key fields -> value. "More details" holds photo, serial, custom fields, notes. ---
+    const GEAR_CATS = [
+      { id: "Cannes", types: ["Lancer léger", "Lancer lourd", "Mouche", "Traîne", "Pêche blanche", "Télescopique"], ph: "ex. Shimano Sienna", fields: [
+        { k: "len", label: "Longueur", kind: "chips", opts: ["4 pi 6", "5 pi 6", "6 pi", "6 pi 6", "7 pi", "7 pi 6", "8 pi 6", "9 pi"] },
+        { k: "power", label: "Puissance", kind: "chips", opts: ["UL", "L", "ML", "M", "MH", "H"] },
+        { k: "action", label: "Action", kind: "chips", opts: ["Modérée", "Rapide", "Très rapide"] }] },
+      { id: "Moulinets", types: ["Lancer léger", "Lancer lourd", "Mouche", "Traîne à compteur", "Pêche blanche"], ph: "ex. Pflueger President", fields: [
+        { k: "size", label: "Taille", kind: "chips", opts: ["500", "1000", "2000", "2500", "3000", "4000 +"] },
+        { k: "line", label: "Fil installé", kind: "text", ph: "ex. tresse 10 lb + bas de ligne fluoro 8 lb" }] },
+      { id: "Fils", types: ["Monofilament", "Fluorocarbone", "Tresse", "Plombé", "Soie à mouche"], ph: "ex. PowerPro", reminder: true, fields: [
+        { k: "lb", label: "Résistance", kind: "num", unit: "lb", ph: "10" },
+        { k: "yd", label: "Longueur", kind: "num", unit: "vg", ph: "150" },
+        { k: "reel", label: "Installé sur", kind: "chips", opts: ["Moulinet lancer léger 2500", "Moulinet à traîne", "En réserve"] }] },
+      { id: "Leurres", types: ["Jig / tête plombée", "Leurre souple", "Cuillère ondulante", "Cuillère tournante", "Poisson-nageur", "Dandinette", "Leurre de surface", "Tube", "Mouche"], ph: "ex. Rapala Jigging Rap", fields: [
+        { k: "oz", label: "Poids", kind: "chips", opts: ["1/16 oz", "1/8 oz", "1/4 oz", "3/8 oz", "1/2 oz", "3/4 oz", "1 oz +"] },
+        { k: "in", label: "Longueur", kind: "num", unit: "po", ph: "3" },
+        { k: "color", label: "Couleur", kind: "text", ph: "ex. perchaude, chartreuse" },
+        { k: "qty", label: "Quantité", kind: "qty" }] },
+      { id: "Petit matériel", types: ["Hameçons", "Pesées", "Émerillons", "Bas de ligne", "Flotteurs", "Autre"], ph: "ex. hameçons Octopus", fields: [
+        { k: "fmt", label: "Format", kind: "text", ph: "ex. #4, 1/8 oz" },
+        { k: "qty", label: "Quantité", kind: "qty" }] },
+      { id: "Pêche blanche", types: ["Brimbale", "Tarière", "Cabane / abri", "Écumoire", "Traîneau", "Autre"], ph: "ex. tarière électrique", fields: [
+        { k: "detail", label: "Précision", kind: "text", ph: "ex. 8 po, électrique" },
+        { k: "qty", label: "Quantité", kind: "qty" }] },
+      { id: "Électronique", types: ["Sondeur", "GPS", "Moteur électrique", "Caméra sous-marine", "Autre"], ph: "ex. Deeper CHIRP+ 2", fields: [
+        { k: "conn", label: "Connexion au téléphone", kind: "chips", opts: ["Aucune", "Wi-Fi", "Bluetooth", "NMEA 2000"] }] },
+      { id: "Embarcation", types: ["Chaloupe", "Canot", "Kayak", "Ponton", "Moteur hors-bord", "VFI"], ph: "ex. Princecraft 14 pi", fields: [
+        { k: "ft", label: "Longueur", kind: "num", unit: "pi", ph: "14" },
+        { k: "hp", label: "Moteur", kind: "num", unit: "HP", ph: "9,9" }] },
+      { id: "Accessoires", types: ["Épuisette", "Pince", "Coffre", "Glacière", "Bottes-pantalon", "Vêtement", "Autre"], ph: "ex. épuisette caoutchoutée", fields: [] }
+    ];
+    const gc = GEAR_CATS.find((c) => c.id === s.geCat) || GEAR_CATS[0];
+    const setF = (k, v) => this.setState({ geF: Object.assign({}, s.geF, { [k]: v }) });
+    const money = (n) => num(n, 2) + " $";
+    const geCats = GEAR_CATS.map((c) => Object.assign({ label: c.id, on: c.id === s.geCat ? "true" : "false", pick: () => this.setState({ geCat: c.id, geType: "", geF: {} }) }, pill(c.id === s.geCat)));
+    const geTypes = gc.types.map((t) => Object.assign({ label: t, on: t === s.geType ? "true" : "false", pick: () => this.setState({ geType: t }) }, pill(t === s.geType)));
+    const geFields = gc.fields.map((f) => {
+      const val = s.geF[f.k];
+      const q = val || 1;
+      return {
+        label: f.label, unit: f.unit || "", ph: f.ph || "",
+        isChips: f.kind === "chips", isNum: f.kind === "num", isText: f.kind === "text", isQty: f.kind === "qty",
+        val: f.kind === "qty" ? q : (val || ""),
+        set: (e) => setF(f.k, e.target.value),
+        dec: () => setF(f.k, Math.max(1, q - 1)), inc: () => setF(f.k, q + 1),
+        chips: (f.opts || []).map((o) => Object.assign({ label: o, pick: () => setF(f.k, val === o ? "" : o) }, pill(val === o)))
+      };
+    });
+    const geParts = [s.geType].concat(gc.fields.map((f) => {
+      const v = s.geF[f.k];
+      if (!v) return "";
+      if (f.kind === "qty") return v > 1 ? "×" + v : "";
+      if (f.kind === "num") return v + " " + f.unit;
+      return v;
+    })).filter(Boolean);
+    const geSummary = [s.geName.trim() || s.geCat].concat(geParts).concat(s.geValue ? [money(parse(s.geValue))] : []).join(" · ");
+    const geCustom = s.geCustom.map((c, i) => ({
+      l: c.l, v: c.v,
+      setL: (e) => { const n = s.geCustom.slice(); n[i] = { l: e.target.value, v: c.v }; this.setState({ geCustom: n }); },
+      setV: (e) => { const n = s.geCustom.slice(); n[i] = { l: c.l, v: e.target.value }; this.setState({ geCustom: n }); }
+    }));
+    const saveGear = () => {
+      const name = s.geName.trim() || s.geType || s.geCat;
+      const extras = s.geCustom.filter((c) => c.l && c.v).map((c) => c.l + " : " + c.v);
+      const used = gc.reminder && s.geRem ? "Rappel : changer le fil dans 12 mois" : "Ajouté aujourd'hui";
+      const item = { cat: s.geCat, name: name, meta: geParts.concat(extras).join(" · ") || s.geCat, used: used, value: s.geValue ? money(parse(s.geValue)) : "—" };
+      const next = { gearExtra: s.gearExtra.concat([item]), screen: "equip", gearTab: s.geCat, geType: "", geName: "", geF: {}, geValue: "", geDate: "", geMore: false, geNotes: "", geSerial: "", geCustom: [] };
+      if (s.geToExp && parse(s.geValue) > 0) next.exps = [{ cat: "Équipement", amt: parse(s.geValue), note: name, date: "Aujourd'hui" }].concat(s.exps);
+      this.setState(next);
+    };
+
+    // --- Add expense: amount -> category -> one optional detail -> date, linked trip, split. ---
+    const DEP_CATS = [
+      { id: "Permis", sub: { label: "Type de permis", chips: ["Pêche sportive · annuel", "Pêche sportive · courte durée", "Saumon", "Autre permis"] } },
+      { id: "Accès", label: "Accès (zec, réserve, parc)", sub: { label: "Territoire", text: "ex. Zec Kipawa" } },
+      { id: "Pourvoirie", label: "Pourvoirie, hébergement", sub: { label: "Établissement", text: "ex. nom de la pourvoirie" } },
+      { id: "Carburant", sub: { label: "Pour", chips: ["Auto", "Bateau", "Motoneige / VTT"] } },
+      { id: "Appâts", sub: { label: "Type", chips: ["Vers", "Ménés morts", "Sangsues", "Autre"] } },
+      { id: "Équipement" },
+      { id: "Location", sub: { label: "Location de", chips: ["Chaloupe", "Moteur", "Chalet", "Équipement"] } },
+      { id: "Nourriture" },
+      { id: "Entretien", label: "Entretien, réparation" },
+      { id: "Autre" }
+    ];
+    const dc = DEP_CATS.find((c) => c.id === s.deCat) || DEP_CATS[0];
+    const deCats = DEP_CATS.map((c) => Object.assign({ label: c.label || c.id, on: c.id === s.deCat ? "true" : "false", pick: () => this.setState({ deCat: c.id, deSub: "", deText: "" }) }, pill(c.id === s.deCat)));
+    const deSubOpts = dc.sub && dc.sub.chips ? dc.sub.chips.map((o) => Object.assign({ label: o, pick: () => this.setState({ deSub: s.deSub === o ? "" : o }) }, pill(o === s.deSub))) : [];
+    const deTotal = parse(s.deAmt), deMine = s.deSplit > 1 ? deTotal / s.deSplit : deTotal;
+    const deShare = s.deSplit > 1 ? (deTotal ? "Votre part : " + money(deMine) : "Votre part sera calculée") : "Seulement vous";
+    const saveExp = () => {
+      if (!deTotal) return;
+      const bits = [s.deSub || s.deText, s.deTrip !== "Aucune" ? s.deTrip : "", s.deSplit > 1 ? "total " + money(deTotal) + " partagé à " + s.deSplit : "", s.deNote].filter(Boolean);
+      this.setState({ exps: [{ cat: s.deCat, amt: deMine, note: bits.join(" · ") || (dc.label || dc.id), date: "Aujourd'hui" }].concat(s.exps), screen: "depenses", deAmt: "", deSub: "", deText: "", deTrip: "Aucune", deSplit: 1, deNote: "" });
+    };
+    const expTotal = s.exps.reduce((a, e) => a + e.amt, 0);
+    const byCat = {};
+    s.exps.forEach((e) => { byCat[e.cat] = (byCat[e.cat] || 0) + e.amt; });
+    const catMax = Math.max(1, ...Object.keys(byCat).map((k) => byCat[k]));
+    const expensesLive = Object.keys(byCat).sort((a, b) => byCat[b] - byCat[a]).map((k) => {
+      const c = DEP_CATS.find((x) => x.id === k) || {};
+      return { label: c.label || k, amount: money(byCat[k]), pct: Math.round(byCat[k] / catMax * 100) };
+    });
+    const expRecent = s.exps.slice(0, 6).map((e) => ({ cat: e.cat, note: e.note, date: e.date, amount: money(e.amt) }));
+
+    // --- Maintenance: suggested tasks per gear type, 4 recurrence modes, local reminders, optional cost -> expense ---
+    const toDate = (iso) => new Date(iso + "T12:00:00");
+    const isoOf = (d) => d.toISOString().slice(0, 10);
+    const addPeriod = (iso, n, unit) => {
+      const d = toDate(iso);
+      if (unit === "jours") d.setDate(d.getDate() + n);
+      else if (unit === "semaines") d.setDate(d.getDate() + 7 * n);
+      else if (unit === "mois") d.setMonth(d.getMonth() + n);
+      else d.setFullYear(d.getFullYear() + n);
+      return isoOf(d);
+    };
+    const daysTo = (iso) => Math.round((toDate(iso) - toDate(today)) / 86400000);
+    const SEASON_MD = { "Avant l'ouverture": "04-15", "Avant la pêche blanche": zg ? zg.from : "12-01", "Fin de saison": "10-15" };
+    const nextSeason = (key, fromIso) => { const y = +fromIso.slice(0, 4); const a = y + "-" + SEASON_MD[key]; return a > fromIso ? a : (y + 1) + "-" + SEASON_MD[key]; };
+    const EVERY1 = { jours: "Chaque jour", semaines: "Chaque semaine", mois: "Chaque mois", ans: "Chaque année" };
+    const ruleOf = (m) => m.mode === "time" ? (m.n === 1 ? EVERY1[m.unit] : (m.unit === "semaines" ? "Toutes les " : "Tous les ") + m.n + " " + m.unit)
+      : m.mode === "usage" ? (m.n === 1 && m.unit === "sorties" ? "Après chaque sortie" : "Toutes les " + m.n + " " + m.unit)
+      : m.mode === "season" ? "Chaque année, " + m.season.charAt(0).toLowerCase() + m.season.slice(1)
+      : "Une seule fois";
+    const LATE = "#FFB08A", SOON = "#EEF5F4", LATER = "#A9BDB9", DONE = "#7FD6CA";
+    const maintRows = s.maints.map((m, i) => {
+      let due, color = LATER, urg = 9999;
+      if (m.mode === "usage") {
+        const rem = m.n - (m.doneToday ? 0 : (m.count || 0));
+        const u = m.unit === "sorties" ? (rem > 1 ? " sorties" : " sortie") : " h de moteur";
+        due = m.doneToday ? "Fait aujourd'hui · prochain dans " + rem + u : (rem <= 0 ? "Seuil atteint : à faire" : "Dans " + rem + u);
+        urg = rem * 7;
+        if (!m.doneToday && rem <= 0) color = LATE; else if (!m.doneToday && rem <= 3) color = SOON;
+      } else if (m.mode === "once") {
+        const d = daysTo(m.date || today);
+        due = m.doneToday ? "Fait aujourd'hui" : (d < 0 ? "En retard de " + (-d) + " jour" + (d < -1 ? "s" : "") : "Le " + fmtD(m.date || today));
+        urg = d;
+        if (!m.doneToday && d < 0) color = LATE;
+      } else {
+        const iso = m.mode === "time" ? addPeriod(m.doneToday ? today : m.last, m.n, m.unit) : nextSeason(m.season, m.doneToday ? addPeriod(today, 60, "jours") : (m.last || today));
+        const d = daysTo(iso);
+        urg = d;
+        if (m.doneToday) due = "Fait aujourd'hui · prochain le " + fmtD(iso);
+        else if (d < 0) { due = "En retard de " + (-d) + " jour" + (d < -1 ? "s" : ""); color = LATE; }
+        else if (d === 0) { due = "Aujourd'hui"; color = LATE; }
+        else if (d <= 30) { due = "Dans " + d + " jour" + (d > 1 ? "s" : "") + " · " + fmtD(iso); color = SOON; }
+        else due = "Le " + fmtD(iso);
+      }
+      if (m.doneToday) { color = DONE; urg = 9999; }
+      return {
+        urg: urg, task: m.task, gear: m.gear, rule: ruleOf(m), done: m.doneToday, dueColor: color,
+        remindTxt: m.notif ? (m.mode === "usage" ? "rappel au début de la sortie" : "rappel " + (m.remind || "le jour même").toLowerCase()) : "sans notification",
+        due: due + (m.doneToday && m.cost && m.costExp ? " · " + money(parse(m.cost)) + " ajouté aux dépenses" : ""),
+        toggle: () => {
+          const n = s.maints.slice(), was = m.doneToday;
+          n[i] = Object.assign({}, m, { doneToday: !was });
+          const nx = { maints: n };
+          if (m.cost && m.costExp) nx.exps = was ? s.exps.filter((e) => e.mid !== m.id) : [{ cat: "Entretien", amt: parse(m.cost), note: m.task + " · " + m.gear, date: "Aujourd'hui", mid: m.id }].concat(s.exps);
+          this.setState(nx);
+        }
+      };
+    }).sort((a, b) => a.urg - b.urg);
+    const maint = maintRows;
+    const overdueN = maintRows.filter((r) => r.dueColor === LATE).length;
+
+    const MGEAR = [["Moulinet lancer léger 2500", "Moulinets"], ["Moulinet à traîne avec compteur", "Moulinets"], ["Canne lancer léger 6 pi 6", "Cannes"], ["Moteur hors-bord 9,9 HP", "Moteur"], ["Chaloupe 14 pi", "Embarcation"], ["Tarière 8 po", "Pêche blanche"], ["Boîte de jigs", "Leurres"], ["Sondeur", "Électronique"]]
+      .concat(s.gearExtra.map((g) => [g.name, g.cat]))
+      .concat([["Général (aucun article)", "Général"]]);
+    const mgCat = (MGEAR.find((g) => g[0] === s.meGear) || ["", "Général"])[1];
+    // [task, mode, n | season, unit]
+    const TPL = {
+      "Moulinets": [["Changer le fil", "usage", 20, "sorties"], ["Graisser et huiler", "time", 6, "mois"], ["Vérifier le frein", "season", "Avant l'ouverture"], ["Rincer et sécher", "usage", 1, "sorties"]],
+      "Fils": [["Changer le fil", "usage", 20, "sorties"]],
+      "Cannes": [["Vérifier les anneaux", "season", "Avant l'ouverture"], ["Nettoyer les joints des sections", "time", 1, "ans"]],
+      "Moteur": [["Changer l'huile de l'embase", "time", 1, "ans"], ["Remplacer la bougie", "usage", 100, "heures de moteur"], ["Hivernage (stabilisant, vidange)", "season", "Fin de saison"], ["Vérifier l'hélice", "season", "Avant l'ouverture"]],
+      "Embarcation": [["Inspecter la coque et les rivets", "season", "Avant l'ouverture"], ["Graisser les roulements de remorque", "time", 1, "ans"], ["Vérifier les VFI et la trousse de sécurité", "season", "Avant l'ouverture"]],
+      "Pêche blanche": [["Aiguiser ou changer les lames", "season", "Avant la pêche blanche"], ["Charger la batterie", "usage", 3, "sorties"]],
+      "Leurres": [["Aiguiser les hameçons", "season", "Avant la pêche blanche"], ["Remplacer les hameçons rouillés", "time", 1, "ans"]],
+      "Petit matériel": [["Remplacer les hameçons rouillés", "time", 1, "ans"]],
+      "Électronique": [["Mettre à jour le logiciel", "time", 6, "mois"], ["Entreposer la batterie chargée", "season", "Fin de saison"]],
+      "Général": [["Ranger et inventorier le coffre", "season", "Fin de saison"]]
+    };
+    const tpls = TPL[mgCat] || TPL["Général"];
+    const applyTpl = (t) => {
+      const o = { meTask: t[0], meMode: t[1] };
+      if (t[1] === "season") o.meSeason = t[2]; else { o.meN = t[2]; if (t[1] === "time") o.meUnit = t[3]; else o.meUsageUnit = t[3]; }
+      this.setState(o);
+    };
+    const chipsOf = (opts, cur, set) => opts.map((o) => Object.assign({ label: o, pick: () => set(o) }, pill(o === cur)));
+    const meGears = MGEAR.map((g) => Object.assign({ label: g[0], on: g[0] === s.meGear ? "true" : "false", pick: () => this.setState({ meGear: g[0], meTask: "" }) }, pill(g[0] === s.meGear)));
+    const meTpls = tpls.map((t) => Object.assign({ label: t[0], on: t[0] === s.meTask ? "true" : "false", pick: () => applyTpl(t) }, pill(t[0] === s.meTask)))
+      .concat([Object.assign({ label: "Autre tâche", on: s.meTask === "__autre" ? "true" : "false", pick: () => this.setState({ meTask: "__autre" }) }, pill(s.meTask === "__autre"))]);
+    const meModes = seg([["time", "Selon le temps", "jours, mois, ans"], ["usage", "Selon l'usage", "sorties, heures"], ["season", "Selon la saison", "ouverture, glace, hivernage"], ["once", "Une seule fois", "à une date"]], s.meMode, (v) => this.setState({ meMode: v }));
+    const meSeasons = seg([["Avant l'ouverture", "Avant l'ouverture", "Vers le 15 avril"], ["Avant la pêche blanche", "Avant la pêche blanche", "Avant le " + fmtMD(SEASON_MD["Avant la pêche blanche"]) + (zg ? " · " + zLabel(zoneId) : "")], ["Fin de saison", "Fin de saison", "Vers le 15 octobre · hivernage"]], s.meSeason, (v) => this.setState({ meSeason: v }));
+    const meUnitChips = s.meMode === "usage"
+      ? chipsOf(["sorties", "heures de moteur"], s.meUsageUnit, (v) => this.setState({ meUsageUnit: v }))
+      : chipsOf(["jours", "semaines", "mois", "ans"], s.meUnit, (v) => this.setState({ meUnit: v }));
+    const meReminds = chipsOf(["Le jour même", "1 jour avant", "1 semaine avant"], s.meRemind, (v) => this.setState({ meRemind: v }));
+    const meStep = s.meMode === "usage" && s.meUsageUnit === "heures de moteur" ? 10 : 1;
+    const meTaskName = s.meTask === "__autre" ? s.meTaskOther.trim() : s.meTask;
+    const meDraft = { task: meTaskName || "Tâche à préciser", gear: s.meGear, mode: s.meMode, n: s.meN, unit: s.meMode === "usage" ? s.meUsageUnit : s.meUnit, season: s.meSeason, date: s.meDate, notif: s.meNotif, remind: s.meRemind };
+    const meSummary = [meDraft.task, s.meGear, ruleOf(meDraft), s.meNotif ? (s.meMode === "usage" ? "rappel au début de la sortie" : "rappel " + s.meRemind.toLowerCase()) : "sans notification"]
+      .concat(s.meCost ? [money(parse(s.meCost)) + (s.meCostExp ? " ajouté aux dépenses à chaque fois" : "")] : []).join(" · ");
+    const saveMaint = () => {
+      if (!meTaskName) return;
+      const item = Object.assign({}, meDraft, { id: Date.now(), last: today, count: 0, cost: s.meCost, costExp: s.meCostExp, notes: s.meNotes, doneToday: false });
+      this.setState({ maints: s.maints.concat([item]), screen: "entretien", meTask: "", meTaskOther: "", meCost: "", meNotes: "" });
+    };
+
+    // --- Backup (.touladi = zip: SQLite db + photos + manifest), restore with preview + safety copy, CSV and GPX exports ---
+    const bkAgo = -daysTo(s.bkLast);
+    const BK_DAYS = { "Jamais": null, "Tous les 7 jours": 7, "Tous les 30 jours": 30, "Après 20 prises": null };
+    const bkLimit = BK_DAYS[s.bkRemind];
+    const bkLate = bkLimit !== null && bkLimit !== undefined && bkAgo > bkLimit;
+    const nCatches = s.catches.length + 18, nGear = 14 + s.gearExtra.length;
+    const bkStamp = "touladi-" + today + ".touladi";
+    const bkReminds = chipsOf(["Jamais", "Tous les 7 jours", "Tous les 30 jours", "Après 20 prises"], s.bkRemind, (v) => this.setState({ bkRemind: v }))
+      .map((o) => Object.assign(o, { on: o.label === s.bkRemind ? "true" : "false" }));
+    const csvOpts = Object.keys(s.csvSel).map((k) => Object.assign({ label: k, on: s.csvSel[k] ? "true" : "false", pick: () => this.setState({ csvSel: Object.assign({}, s.csvSel, { [k]: !s.csvSel[k] }) }) }, pill(s.csvSel[k])));
+    const csvN = Object.keys(s.csvSel).filter((k) => s.csvSel[k]).length;
+    const makeBackup = () => {
+      if (s.bkPwOn && !s.bkPw) return;
+      this.setState({ bkLast: today, bkMade: true });
+    };
+
+    const maintData = [
+      ["Graisser le moulinet", "Moulinet à traîne avec compteur", "En retard de 12 jours", true],
+      ["Changer le fil", "Moulinet lancer léger 2500", "Dans 3 sorties", false],
+      ["Vérifier les anneaux", "Canne lancer léger 6 pi 6", "Fait le 30 sept.", false],
+      ["Aiguiser les hameçons", "Boîte de jigs", "Avant la pêche blanche", false]
+    ];
+    const maintLegacy = maintData.map((m, i) => ({
+      task: m[0], gear: m[1], due: s.maintDone[i] ? "Fait" : m[2],
+      dueColor: s.maintDone[i] ? "#2E6B6E" : (m[3] ? "#C24F1C" : "#A9BDB9"),
+      done: s.maintDone[i],
+      toggle: () => { const n = s.maintDone.slice(); n[i] = !n[i]; this.setState({ maintDone: n }); }
+    }));
+
+    return {
+      title: titles[sc],
+      isZone: sc === "zone", isRegl: sc === "regl", goZone: go("zone"), goRegl: go("regl"),
+      zoneLabel: zLabel(zoneId),
+      zoneModeLabel: s.zoneMode === "auto" ? "détectée au point GPS" : "choisie manuellement",
+      zoneModeOpts: seg([["auto", "Automatique", "Selon le GPS"], ["manual", "Manuelle", "Je choisis"]], s.zoneMode, (v) => this.setState({ zoneMode: v })),
+      zoneManual: s.zoneMode === "manual",
+      zoneBtns: ZONES.map((id) => { const on = s.zoneMode === "manual" && id === s.zone; return Object.assign({ label: id.replace("E", " E").replace("O", " O"), aria: zLabel(id), on: on ? "true" : "false", pick: () => this.setState({ zone: id, zoneMode: "manual" }) }, pill(on)); }),
+      reglNoData: !zr, reglHasData: !!zr,
+      reglClosed: zr ? zr.closed.map((n) => ({ name: n })) : [], reglHasClosed: !!zr && zr.closed.length > 0,
+      reglRows: reglRows,
+      reglWinter: zr && zr.winter ? zr.winter.map((t) => ({ t: t })) : [], reglHasWinter: !!(zr && zr.winter),
+      hasExc: exc.length > 0, excCount: exc.length, excShown: excShown,
+      excMore: exc.length > 8 && !s.excAll, excMoreLabel: "Voir les " + exc.length + " plans d'eau", showAllExc: () => this.setState({ excAll: true }),
+      seasonExpired: today > "2027-03-31",
+      spQuery: s.spQuery, setSpQuery: (e) => this.setState({ spQuery: e.target.value }),
+      spResults: spResults, spNoResult: q !== "" && pool.length === 0, spQueryEmpty: q === "",
+      spCount: this.SP.length - 4,
+      spFr: spRow[0], spSci: spRow[1], spFam: spRow[2],
+      spHasPhoto: !phOf(spRow[0]).noPhoto, spPhClass: phOf(spRow[0]).phClass, spPhPos: phOf(spRow[0]).phPos,
+      rule: rule,
+      gearSel: s.gear,
+      setGear: (e) => this.setState(Object.assign({ gear: e.target.value }, GEAR_OPTS[e.target.value] || {})),
+      baitOpts: baitOpts, baitIsFish: s.bait === "mort",
+      baitSp: s.baitSp, setBaitSp: (e) => this.setState({ baitSp: e.target.value }),
+      hooks: s.hooks, lines: s.lines,
+      hooksDown: () => this.setState({ hooks: Math.max(1, s.hooks - 1) }), hooksUp: () => this.setState({ hooks: Math.min(9, s.hooks + 1) }),
+      linesDown: () => this.setState({ lines: Math.max(1, s.lines - 1) }), linesUp: () => this.setState({ lines: Math.min(10, s.lines + 1) }),
+      flyOnly: s.flyOnly, toggleFly: () => this.setState({ flyOnly: !s.flyOnly }),
+      vg: vg, gv: gv,
+      depthUnit: imp ? "pi" : "m", depthVal: userDepth ? s.depthIn : toUnitDepth(bathyM),
+      setDepth: (e) => this.setState({ depthIn: e.target.value }),
+      fishDepth: s.fishDepth, setFishDepth: (e) => this.setState({ fishDepth: e.target.value }),
+      depthSrc: depthSrc, byDepth: byDepth,
+      isAjoutEquip: sc === "ajoutEquip", isAjoutDep: sc === "ajoutDep",
+      goAjoutEquip: () => this.setState({ screen: "ajoutEquip", geCat: sc === "equip" ? s.gearTab : s.geCat, geType: "", geF: {} }),
+      goAjoutDep: () => this.setState({ screen: "ajoutDep" }),
+      geCats: geCats, geTypes: geTypes, geName: s.geName, setGeName: (e) => this.setState({ geName: e.target.value }), gePh: gc.ph,
+      geFields: geFields, geRemShow: !!gc.reminder, geRem: s.geRem, toggleGeRem: () => this.setState({ geRem: !s.geRem }),
+      geValue: s.geValue, setGeValue: (e) => this.setState({ geValue: e.target.value }),
+      geDate: s.geDate, setGeDate: (e) => this.setState({ geDate: e.target.value }),
+      geToExp: s.geToExp, toggleGeToExp: () => this.setState({ geToExp: !s.geToExp }),
+      geMore: s.geMore, geMoreAria: s.geMore ? "true" : "false", geMoreSign: s.geMore ? "−" : "+", toggleGeMore: () => this.setState({ geMore: !s.geMore }),
+      geSerial: s.geSerial, setGeSerial: (e) => this.setState({ geSerial: e.target.value }),
+      geCustom: geCustom, addGeCustom: () => this.setState({ geCustom: s.geCustom.concat([{ l: "", v: "" }]) }),
+      geNotes: s.geNotes, setGeNotes: (e) => this.setState({ geNotes: e.target.value }),
+      saveGear: saveGear, geSummary: geSummary,
+      deAmt: s.deAmt, setDeAmt: (e) => this.setState({ deAmt: e.target.value }),
+      deCats: deCats, deSubShow: !!dc.sub, deSubLabel: dc.sub ? dc.sub.label : "",
+      deSubChips: !!(dc.sub && dc.sub.chips), deSubText: !!(dc.sub && dc.sub.text), deSubPh: dc.sub && dc.sub.text ? dc.sub.text : "",
+      deSubOpts: deSubOpts, deText: s.deText, setDeText: (e) => this.setState({ deText: e.target.value }),
+      deIsEquip: s.deCat === "Équipement",
+      deDate: s.deDate, setDeDate: (e) => this.setState({ deDate: e.target.value }),
+      deTrip: s.deTrip, setDeTrip: (e) => this.setState({ deTrip: e.target.value }),
+      deSplit: s.deSplit, splitDown: () => this.setState({ deSplit: Math.max(1, s.deSplit - 1) }), splitUp: () => this.setState({ deSplit: Math.min(12, s.deSplit + 1) }),
+      deShare: deShare, deNote: s.deNote, setDeNote: (e) => this.setState({ deNote: e.target.value }),
+      saveExp: saveExp,
+      isAjoutEnt: sc === "ajoutEnt", goAjoutEnt: () => this.setState({ screen: "ajoutEnt" }),
+      maintOverdueTxt: overdueN ? overdueN + " rappel" + (overdueN > 1 ? "s" : "") + " en retard" : "Aucun retard",
+      meGears: meGears, meTpls: meTpls, meOther: s.meTask === "__autre", meTaskOther: s.meTaskOther, setMeTaskOther: (e) => this.setState({ meTaskOther: e.target.value }),
+      meModes: meModes, meIsCount: s.meMode === "time" || s.meMode === "usage", meIsUsage: s.meMode === "usage", meIsSeason: s.meMode === "season", meIsOnce: s.meMode === "once",
+      meEveryWord: s.meMode === "usage" || s.meUnit === "semaines" ? "Toutes les" : "Tous les",
+      meN: s.meN, meNDown: () => this.setState({ meN: Math.max(1, s.meN - meStep) }), meNUp: () => this.setState({ meN: Math.min(999, s.meN + meStep) }),
+      meUnitChips: meUnitChips, meSeasons: meSeasons,
+      meDate: s.meDate, setMeDate: (e) => this.setState({ meDate: e.target.value }),
+      meNotif: s.meNotif, toggleMeNotif: () => this.setState({ meNotif: !s.meNotif }), meShowRemind: s.meNotif && s.meMode !== "usage", meReminds: meReminds,
+      meCost: s.meCost, setMeCost: (e) => this.setState({ meCost: e.target.value }), meCostExp: s.meCostExp, toggleMeCostExp: () => this.setState({ meCostExp: !s.meCostExp }),
+      meNotes: s.meNotes, setMeNotes: (e) => this.setState({ meNotes: e.target.value }),
+      meSummary: meSummary, saveMaint: saveMaint,
+      isSauvegarde: sc === "sauvegarde", goSauvegarde: go("sauvegarde"),
+      bkStatus: bkAgo === 0 ? "Sauvegardé aujourd'hui" : "Dernière sauvegarde il y a " + bkAgo + " jour" + (bkAgo > 1 ? "s" : ""),
+      bkColor: bkLate ? "#FFB08A" : "#A9BDB9", bkBd: bkLate ? "#C24F1C" : "rgba(255,255,255,0.14)", bkLate: bkLate,
+      bkHead: bkAgo === 0 ? "Aujourd'hui" : fmtD(s.bkLast) + " · il y a " + bkAgo + " jour" + (bkAgo > 1 ? "s" : ""),
+      bkCounts: "Sur ce téléphone : " + nCatches + " prises · 3 spots · 31 photos · " + nGear + " articles · " + s.exps.length + " dépenses · " + s.maints.length + " entretiens",
+      bkPhotos: s.bkPhotos, toggleBkPhotos: () => this.setState({ bkPhotos: !s.bkPhotos, bkMade: false }),
+      bkPwOn: s.bkPwOn, toggleBkPw: () => this.setState({ bkPwOn: !s.bkPwOn, bkMade: false }),
+      bkPw: s.bkPw, setBkPw: (e) => this.setState({ bkPw: e.target.value }),
+      bkSize: s.bkPhotos ? "≈ 52 Mo" : "≈ 1 Mo",
+      makeBackup: makeBackup, bkMade: s.bkMade, bkFile: bkStamp,
+      bkMadeTxt: "Choisissez où l'envoyer : Fichiers, Google Drive, courriel, clé USB…" + (s.bkPwOn ? " Fichier chiffré (AES-256)." : " Fichier non chiffré : il contient vos spots."),
+      bkReminds: bkReminds,
+      rsIdle: s.rsStage === "idle", rsPreview: s.rsStage === "preview", rsDone: s.rsStage === "done",
+      rsPick: () => this.setState({ rsStage: "preview" }), rsCancel: () => this.setState({ rsStage: "idle" }), rsConfirm: () => this.setState({ rsStage: "done" }),
+      rsSafety: "avant-restauration-" + today + ".touladi",
+      csvOpts: csvOpts, csvLabel: csvN ? "Exporter en CSV · " + csvN + " fichier" + (csvN > 1 ? "s" : "") : "Choisissez au moins un tableau",
+      exportCsv: () => { if (csvN) this.setState({ expMsg: csvN + " fichier" + (csvN > 1 ? "s" : "") + " CSV prêt" + (csvN > 1 ? "s" : "") + " (UTF-8, séparateur point-virgule pour Excel en français). Choisissez où les envoyer." }); },
+      exportGpx: () => this.setState({ expMsg: "touladi-spots.gpx prêt : 3 spots avec nom et profondeur. Choisissez où l'envoyer." }),
+      hasExpMsg: !!s.expMsg, expMsg: s.expMsg,
+      expenses: expensesLive, expRecent: expRecent,
+      expTotalTxt: money(expTotal), expPerCatch: "soit " + money(expTotal / (s.catches.length + 18)) + " par prise",
+      tipCount: s.tips.length, tipMax: iceMax === null ? "?" : iceMax, iceInfo: iceInfo,
+      emptySlots: emptySlots, addTip: addTip, tipFull: canAddTip ? "false" : "true",
+      addLabel: iceMax === null ? "Limite inconnue pour cette zone" : (canAddTip ? "Ajouter une brimbale (GPS)" : "Limite atteinte : " + iceMax + " ligne" + (iceMax > 1 ? "s" : "")),
+      addFg: canAddTip ? "#EEF5F4" : "#93A5A1",
+      iceLake: s.iceLake, setIceLake: (e) => this.setState({ iceLake: e.target.value }),
+      sessDate: s.sessDate, setSessDate: (e) => this.setState({ sessDate: e.target.value }),
+      lenUnit: imp ? "po" : "cm", wUnit: imp ? "lb" : "kg", tUnit: fahr ? "°F" : "°C",
+      phLen: imp ? "20,5" : "52", phW: imp ? "3,5" : "1,6", phT: fahr ? "39" : "4",
+      water: s.water,
+      airTemp: fmtT(-14), iceNow: fmtIce(28), iceH1: fmtIce(26), iceH2: fmtIce(22), iceH3: fmtIce(17),
+      unitsSummary: (imp ? "impérial" : "métrique") + " · " + (fahr ? "°F" : "°C"),
+      unitOpts: seg([["metric", "Métrique", "cm · kg · m"], ["imperial", "Impérial", "po · lb · pi"]], s.units, (v) => this.setState({ units: v })),
+      tempOpts: seg([["C", "Celsius", "°C"], ["F", "Fahrenheit", "°F"]], s.temp, (v) => this.setState({ temp: v })),
+      exCatch: fmtLen(52) + " · " + fmtW(1.6), exIce: fmtIce(28), exDepth: fmtDepth(6), exTemp: fmtT(4),
+      showBack: !!sub[sc] || sc === "zone" || sc === "regl",
+      goBack: go(sub[sc] || ((sc === "zone" || sc === "regl") ? (s.prevMain || "carnet") : "carnet")),
+      isCarnet: sc === "carnet", isAjout: sc === "ajout", isCarte: sc === "carte", isStats: sc === "stats",
+      isGlace: sc === "glace", isPlus: sc === "plus", isEquip: sc === "equip", isEntretien: sc === "entretien", isDepenses: sc === "depenses", isReglages: sc === "reglages",
+      goCarnet: go("carnet"), goAjout: go("ajout"), goCarte: go("carte"), goStats: go("stats"), goGlace: go("glace"),
+      goPlus: go("plus"), goEquip: go("equip"), goEntretien: go("entretien"), goDepenses: go("depenses"), goReglages: go("reglages"),
+      tc: tc,
+      chips: chips, shown: shown, used: used, usedPct: Math.min(100, Math.round(used / 25 * 100)),
+      species: s.species, length: s.length, weight: s.weight, released: s.released, techs: techs,
+      setSpecies: (e) => this.setState({ species: e.target.value }),
+      setLength: (e) => this.setState({ length: e.target.value }),
+      setWeight: (e) => this.setState({ weight: e.target.value }),
+      setWater: (e) => this.setState({ water: e.target.value }),
+      toggleReleased: () => this.setState({ released: !s.released }),
+      save: save,
+      spots: [
+        { n: "1", name: "Baie aux dorés", meta: fmtDepth(4) + " à " + fmtDepth(6) + " · 9 prises · dernière visite 11 oct." },
+        { n: "2", name: "Pointe rocheuse", meta: "Tombant " + fmtDepth(12) + " · brochet en soirée" },
+        { n: "3", name: "Fosse du touladi", meta: fmtDepth(18) + " · traîne lente au printemps" }
+      ],
+      totalCatches: s.catches.length + 18,
+      bySpecies: [
+        { label: "Doré", n: 9, pct: 100 }, { label: "Brochet", n: 5, pct: 56 }, { label: "Perchaude", n: 4, pct: 44 },
+        { label: "Achigan", n: 3, pct: 33 }, { label: "Touladi", n: 2, pct: 22 }
+      ],
+      byMonth: [
+        { label: "mai", n: 3, h: 24 }, { label: "juin", n: 6, h: 48 }, { label: "juil.", n: 4, h: 32 },
+        { label: "août", n: 2, h: 16 }, { label: "sept.", n: 5, h: 40 }, { label: "oct.", n: 3, h: 24 }
+      ],
+      tipups: tipups,
+      gearTabs: gearTabs, gearShown: (gear[s.gearTab] || []).concat(s.gearExtra.filter((x) => x.cat === s.gearTab)),
+      gearEmpty: !(gear[s.gearTab] || []).length && !s.gearExtra.some((x) => x.cat === s.gearTab),
+      maint: maint,
+      expensesStatic: [
+        { label: "Essence et bateau", amount: "198 $", pct: 100 },
+        { label: "Pourvoirie (2 nuits)", amount: "160 $", pct: 81 },
+        { label: "Leurres et appâts", amount: "74 $", pct: 37 },
+        { label: "Permis de pêche", amount: "54 $", pct: 27 }
+      ]
+    };
+  }
+}
+
+(function () {
+  function fit() {
+    var bh = document.querySelector('.banner').offsetHeight;
+    var s = Math.min(1, window.innerWidth / 390, (window.innerHeight - bh - 36) / 844);
+    s = Math.max(s, 0.55);
+    var f = document.getElementById('frame');
+    f.style.width = (390 * s) + 'px';
+    f.style.height = (844 * s) + 'px';
+    document.getElementById('app').style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+  ReactDOM.createRoot(document.getElementById('app')).render(React.createElement(Component));
+})();
+</script>
+</body>
+</html>

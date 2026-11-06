@@ -837,6 +837,23 @@ input,select,textarea{font-family:inherit}
 <section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Météo</h2>
 <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 600;"><input type="checkbox" checked="{{meteoAuto}}" onChange="{{toggleMeteo}}" style="width: 22px; height: 22px; accent-color: #7FD6CA; flex-shrink: 0;"/>Météo automatique à chaque nouvelle prise</label>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-wind" style="font-size: 13px; font-weight: 600;">Vitesse du vent</span>
+<div role="radiogroup" aria-labelledby="lbl-wind" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{windOpts}}" as="u" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 48px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-weight: 700; font-size: 15px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px;">
+<span id="lbl-pres" style="font-size: 13px; font-weight: 600;">Pression atmosphérique</span>
+<div role="radiogroup" aria-labelledby="lbl-pres" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,0.45);">
+<sc-for list="{{presOpts}}" as="u" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{u.on}}" onClick="{{u.pick}}" style="min-height: 48px; border: 0; background: {{u.bg}}; color: {{u.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;"><span style="font-weight: 700; font-size: 15px;">{{u.label}}</span><span style="font-size: 12px; color: {{u.sub}};">{{u.hint}}</span></button>
+</sc-for>
+</div>
+</div>
+<span style="font-size: 12px; color: #A9BDB9;">Indépendant des mesures de poissons : par défaut en km/h et en kPa, comme les prévisions d'Environnement Canada.</span>
 <span style="font-size: 12px; color: #A9BDB9;">Pour obtenir la météo, Touladi envoie seulement une position arrondie (≈ 10 km), jamais vos spots. Sans réseau, la météo est complétée plus tard à partir de la station la plus proche. La phase lunaire est calculée sur le téléphone.</span>
 <span style="font-size: 11px; color: #A9BDB9;">Sources : MET Norway (CC BY 4.0) et Environnement et Changement climatique Canada.</span>
 </section>
@@ -1131,7 +1148,7 @@ class Component extends DCLogic {
       meGear: "Moulinet à traîne avec compteur", meTask: "", meTaskOther: "", meMode: "time", meN: 6, meUnit: "mois", meUsageUnit: "sorties",
       meSeason: "Avant la pêche blanche", meDate: "", meNotif: true, meRemind: "1 semaine avant", meCost: "", meCostExp: true, meNotes: "",
       deAmt: "", deCat: "Carburant", deSub: "", deText: "", deDate: "", deTrip: "Aucune", deSplit: 1, deNote: "",
-      meteoAuto: true, noNet: false,
+      meteoAuto: true, noNet: false, windU: "kmh", presU: "kpa",
       depthIn: null,
       fishDepth: "",
       iceLake: "Réservoir Kipawa",
@@ -1660,9 +1677,11 @@ class Component extends DCLogic {
     };
     const moon = moonOf(new Date());
     const windKmh = 14, gustKmh = 25, presKpa = 101.8, tendKpa = -0.4, airC = 4;
-    const fmtWind = (v) => imp ? Math.round(v / 1.609) + " mi/h" : Math.round(v) + " km/h";
-    const fmtPres = (v) => imp ? (v * 0.2953).toFixed(2).replace(".", ",") + " po Hg" : v.toFixed(1).replace(".", ",") + " kPa";
-    const dP = (imp ? (tendKpa * 0.2953).toFixed(2) : tendKpa.toFixed(1)).replace(".", ",").replace("-", "−");
+    // Weather units are independent from fish units: km/h and kPa by default, as in Canadian forecasts.
+    const mph = s.windU === "mph", inhg = s.presU === "inhg";
+    const fmtWind = (v) => mph ? Math.round(v / 1.609) + " mi/h" : Math.round(v) + " km/h";
+    const fmtPres = (v) => inhg ? (v * 0.2953).toFixed(2).replace(".", ",") + " po Hg" : v.toFixed(1).replace(".", ",") + " kPa";
+    const dP = (inhg ? (tendKpa * 0.2953).toFixed(2) : tendKpa.toFixed(1)).replace(".", ",").replace("-", "−");
     const trend = tendKpa <= -0.1 ? ["↓ En baisse", "#FFB08A"] : tendKpa >= 0.1 ? ["↑ En hausse", "#9FE6DB"] : ["→ Stable", "#A9BDB9"];
     const wxState = !s.meteoAuto ? "off" : s.noNet ? "pending" : "ready";
     const wx = {
@@ -1725,6 +1744,8 @@ class Component extends DCLogic {
       flyOnly: s.flyOnly, toggleFly: () => this.setState({ flyOnly: !s.flyOnly }),
       vg: vg, gv: gv,
       wx: wx, moon: moon, byTrend: byTrend, byMoon: byMoon,
+      windOpts: seg([["kmh", "km/h", "par défaut"], ["mph", "mi/h", "milles"]], s.windU, (v) => this.setState({ windU: v })),
+      presOpts: seg([["kpa", "kPa", "par défaut"], ["inhg", "po Hg", "pouces de mercure"]], s.presU, (v) => this.setState({ presU: v })),
       noNet: s.noNet, toggleNoNet: () => this.setState({ noNet: !s.noNet }),
       meteoAuto: s.meteoAuto, toggleMeteo: () => this.setState({ meteoAuto: !s.meteoAuto }),
       depthUnit: imp ? "pi" : "m", depthVal: userDepth ? s.depthIn : toUnitDepth(bathyM),

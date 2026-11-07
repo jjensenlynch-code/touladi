@@ -96,6 +96,15 @@ input,select,textarea{font-family:inherit}
 <!-- ============ CARNET ============ -->
 <sc-if value="{{isCarnet}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-direction: column; gap: 14px;">
+<button onClick="{{goCond}}" aria-label="Conditions du secteur, voir le détail" style="width: 100%; background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(127,214,202,0.35); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; text-align: left; color: #EEF5F4;">
+<span style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; width: 100%;"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #A9BDB9;">CONDITIONS DU SECTEUR</span><span style="font-size: 12px; color: #A9BDB9;">{{cond.updatedShort}}</span></span>
+<span style="display: flex; align-items: center; gap: 14px; width: 100%;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1;">{{wx.temp}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0;"><span style="font-size: 14px; font-weight: 600;">Vent {{wx.wind}}</span><span style="font-size: 12px; font-weight: 600; color: {{wx.trendFg}};">{{cond.presShort}}</span></span>
+<span style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><svg width="26" height="26" viewBox="-12 -12 24 24" aria-hidden="true"><circle r="10" fill="#2A3F45" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/><path d="{{moon.path}}" fill="#F3E9DA"/></svg><span style="font-size: 11px; color: #A9BDB9;">{{moon.illumShort}}</span></span>
+</span>
+<span style="font-size: 13px; color: #9FE6DB;">{{cond.headline}}</span>
+</button>
 <section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline;">
 <span style="font-size: 13px; font-weight: 600;">Version gratuite</span>
@@ -718,6 +727,62 @@ input,select,textarea{font-family:inherit}
 </form>
 </sc-if>
 
+<!-- ============ CONDITIONS DU SECTEUR ============ -->
+<sc-if value="{{isCond}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<section style="background: rgba(4,18,22,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(255,255,255,0.14);">
+<span style="font-size: 13px; color: #B8C7C4;">{{cond.place}}</span>
+<div style="display: flex; align-items: center; gap: 14px;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 56px; line-height: 1;">{{wx.temp}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 16px; font-weight: 600;">{{wx.sky}}</span><span style="font-size: 13px; color: #D7E2E0;">{{cond.updated}}</span></span>
+</div>
+<div style="background: rgba(127,214,202,0.13); border: 1px solid rgba(127,214,202,0.35); padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #9FE6DB;">LECTURE TOULADI · À TITRE INDICATIF</span>
+<span style="font-size: 14px;">{{cond.read}}</span>
+</div>
+</section>
+<sc-if value="{{noNet}}" hint-placeholder-val="{{false}}">
+<div role="status" style="background: rgba(226,104,58,0.16); border: 1px solid #C24F1C; padding: 10px 12px; font-size: 13px;">Pas de réseau : voici les dernières conditions téléchargées. Le soleil, la lune et les périodes solunaires restent exacts, car ils sont calculés sur le téléphone.</div>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(255,255,255,0.14); padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #A9BDB9;">VENT</span>
+<div style="display: flex; align-items: center; gap: 8px;"><svg width="30" height="30" viewBox="-12 -12 24 24" role="img" aria-label="{{cond.windAria}}"><circle r="11" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/><path d="M0 -8 L5 4 L0 1 L-5 4 Z" fill="#9FE6DB" transform="rotate({{cond.windRot}})"/></svg><span style="font-size: 18px; font-weight: 700;">{{wx.wind}}</span></div>
+<span style="font-size: 12px; color: #A9BDB9;">{{wx.gust}}</span>
+</div>
+<div style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(255,255,255,0.14); padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #A9BDB9;">PRESSION</span>
+<span style="font-size: 18px; font-weight: 700;">{{wx.pres}}</span>
+<svg width="100%" height="26" viewBox="0 0 100 26" preserveAspectRatio="none" role="img" aria-label="Pression des 6 dernières heures, en baisse"><polyline points="{{cond.spark}}" fill="none" stroke="{{wx.trendFg}}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+<span style="font-size: 12px; font-weight: 600; color: {{wx.trendFg}};">{{wx.trend}}</span>
+</div>
+</div>
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Prochaines heures</h2>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; text-align: center;">
+<sc-for list="{{cond.hours}}" as="hr" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 6px 0; background: rgba(255,255,255,0.05);"><span style="font-size: 12px; color: #A9BDB9;">{{hr.h}}</span><span style="font-size: 15px; font-weight: 700;">{{hr.t}}</span><span style="font-size: 12px;">{{hr.w}}</span><span style="font-size: 11px; color: #A9BDB9;">{{hr.d}}</span></div>
+</sc-for>
+</div>
+</section>
+<section style="background: rgba(255,255,255,0.07); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.14); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 20px;">Soleil et lune</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-size: 14px;">
+<span style="display: flex; flex-direction: column;"><span style="font-size: 12px; color: #A9BDB9;">Lever du soleil</span><span style="font-size: 18px; font-weight: 700;">{{cond.sunrise}}</span></span>
+<span style="display: flex; flex-direction: column;"><span style="font-size: 12px; color: #A9BDB9;">Coucher du soleil</span><span style="font-size: 18px; font-weight: 700;">{{cond.sunset}}</span></span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px;"><svg width="34" height="34" viewBox="-12 -12 24 24" aria-hidden="true" style="flex-shrink: 0;"><circle r="10" fill="#2A3F45" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/><path d="{{moon.path}}" fill="#F3E9DA"/></svg><span style="display: flex; flex-direction: column;"><span style="font-size: 15px; font-weight: 700;">{{moon.name}}</span><span style="font-size: 13px; color: #A9BDB9;">{{moon.illum}}</span></span></div>
+<span style="font-size: 13px; font-weight: 600;">Périodes solunaires d'aujourd'hui</span>
+<sc-for list="{{cond.solunar}}" as="so" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.10);"><span style="font-size: 11px; font-weight: 700; padding: 2px 6px; background: {{so.bg}}; color: {{so.fg}};">{{so.kind}}</span><span style="flex: 1; font-size: 13px; color: #A9BDB9;">{{so.why}}</span><span style="font-size: 14px; font-weight: 700;">{{so.time}}</span></div>
+</sc-for>
+<span style="font-size: 12px; color: #A9BDB9;">Selon la théorie solunaire, le poisson serait plus actif pendant ces périodes : majeures quand la lune passe au-dessus ou sous nos pieds, mineures à son lever et à son coucher.</span>
+</section>
+<button onClick="{{goRegl}}" style="min-height: 48px; background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #EEF5F4; font-weight: 700; font-size: 15px;">Règlements de la {{zoneLabelLower}}</button>
+<span style="font-size: 11px; color: #A9BDB9;">Sources : prévisions d'Environnement Canada et de MET Norway, pression mesurée à la station la plus proche. Soleil, lune et périodes solunaires calculés sur le téléphone. Seule une position arrondie (≈ 10 km) est envoyée.</span>
+</div>
+</sc-if>
+
 <!-- ============ ZONE ============ -->
 <sc-if value="{{isZone}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column; gap: 14px;">
@@ -1210,8 +1275,8 @@ class Component extends DCLogic {
         bg: on ? "#EAF6F3" : "rgba(255,255,255,0.05)", fg: on ? "#0B2228" : "#EEF5F4", sub: on ? "#35504F" : "#A9BDB9" };
     });
     const go = (x) => () => this.setState({ screen: x, prevMain: (sc === "zone" || sc === "regl") ? s.prevMain : sc });
-    const sub = { ajout: "carnet", equip: "plus", entretien: "plus", depenses: "plus", reglages: "plus", ajoutEquip: "equip", ajoutDep: "depenses", ajoutEnt: "entretien", sauvegarde: "plus" };
-    const titles = { carnet: "Mon carnet", ajout: "Nouvelle prise", carte: "Carte hors ligne", stats: "Statistiques", glace: "Pêche blanche", plus: "Plus", equip: "Équipement", entretien: "Entretien", depenses: "Dépenses", reglages: "Réglages", zone: "Zone de pêche", regl: "Règlements", ajoutEquip: "Nouvel article", ajoutDep: "Nouvelle dépense", ajoutEnt: "Nouvel entretien", sauvegarde: "Sauvegarde et export" };
+    const sub = { ajout: "carnet", equip: "plus", entretien: "plus", depenses: "plus", reglages: "plus", ajoutEquip: "equip", ajoutDep: "depenses", ajoutEnt: "entretien", sauvegarde: "plus", cond: "carnet" };
+    const titles = { carnet: "Mon carnet", ajout: "Nouvelle prise", carte: "Carte hors ligne", stats: "Statistiques", glace: "Pêche blanche", plus: "Plus", equip: "Équipement", entretien: "Entretien", depenses: "Dépenses", reglages: "Réglages", zone: "Zone de pêche", regl: "Règlements", cond: "Conditions du secteur", ajoutEquip: "Nouvel article", ajoutDep: "Nouvelle dépense", ajoutEnt: "Nouvel entretien", sauvegarde: "Sauvegarde et export" };
     const pill = (on) => on
       ? { bg: "#EAF6F3", fg: "#0B2228", bd: "#EAF6F3" }
       : { bg: "rgba(255,255,255,0.06)", fg: "#EEF5F4", bd: "rgba(255,255,255,0.24)" };
@@ -1673,7 +1738,7 @@ class Component extends DCLogic {
       const k = Math.cos(2 * Math.PI * f), wax = f < 0.5;
       const rx = Math.max(0.01, Math.abs(k) * 10).toFixed(2);
       const s1 = wax ? 1 : 0, s2 = wax ? (k > 0 ? 0 : 1) : (k > 0 ? 1 : 0);
-      return { name: name, illum: illum + " % éclairée", path: "M 0 -10 A 10 10 0 0 " + s1 + " 0 10 A " + rx + " 10 0 0 " + s2 + " 0 -10 Z" };
+      return { age: age, illumShort: illum + " %", name: name, illum: illum + " % éclairée", path: "M 0 -10 A 10 10 0 0 " + s1 + " 0 10 A " + rx + " 10 0 0 " + s2 + " 0 -10 Z" };
     };
     const moon = moonOf(new Date());
     const windKmh = 14, gustKmh = 25, presKpa = 101.8, tendKpa = -0.4, airC = 4;
@@ -1695,6 +1760,47 @@ class Component extends DCLogic {
       pres: fmtPres(presKpa), trend: trend[0] + " (" + dP + " en 3 h)", trendFg: trend[1],
       temp: fmtT(airC), sky: "Nuageux à 70 %",
       src: "Vent et air : MET Norway, au point de la prise. Pression : station d'Environnement Canada la plus proche (≈ 38 km). Seule une position arrondie (≈ 10 km) est envoyée."
+    };
+    // --- Area conditions: current + next hours (cached for offline), sun/moon/solunar computed on the phone ---
+    const LAT = 46.92, LON = -78.97; // sample position: Réservoir Kipawa
+    const nowD = new Date();
+    const utc0 = Date.UTC(nowD.getUTCFullYear(), nowD.getUTCMonth(), nowD.getUTCDate());
+    const hhmm = (ms) => { const p = {}; new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date(ms)).forEach((x) => { p[x.type] = x.value; }); return { h: +p.hour, m: p.minute }; };
+    const fmtHM = (ms) => { const t = hhmm(ms); return t.h + " h " + t.m; };
+    const sunUtcMin = (rise) => {
+      const doy = Math.floor((nowD.getTime() - Date.UTC(nowD.getUTCFullYear(), 0, 0)) / 864e5);
+      const g = 2 * Math.PI / 365 * (doy - 1), rad = Math.PI / 180;
+      const eqt = 229.18 * (0.000075 + 0.001868 * Math.cos(g) - 0.032077 * Math.sin(g) - 0.014615 * Math.cos(2 * g) - 0.040849 * Math.sin(2 * g));
+      const dec = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g);
+      const ha = Math.acos(Math.cos(90.833 * rad) / (Math.cos(LAT * rad) * Math.cos(dec)) - Math.tan(LAT * rad) * Math.tan(dec)) / rad;
+      return 720 - 4 * (LON + (rise ? ha : -ha)) - eqt;
+    };
+    // Solunar (approximation for the preview; the app will use a proper ephemeris library such as suncalc).
+    const transitUtc = (12 * 60 - 4 * LON) + moon.age * 50.47;
+    const solu = [["MAJEURE", "Lune au-dessus", transitUtc, 60], ["MAJEURE", "Lune sous nos pieds", transitUtc + 745, 60], ["MINEURE", "Lever de la lune", transitUtc - 372, 30], ["MINEURE", "Coucher de la lune", transitUtc + 372, 30]]
+      .map((x) => { const c = utc0 + (((x[2] % 1440) + 1440) % 1440) * 60000; const t = hhmm(c); return { kind: x[0], why: x[1], sort: t.h * 60 + +t.m, time: fmtHM(c - x[3] * 60000) + " – " + fmtHM(c + x[3] * 60000), bg: x[0] === "MAJEURE" ? "#C24F1C" : "rgba(255,255,255,0.10)", fg: x[0] === "MAJEURE" ? "#FFFFFF" : "#EEF5F4" }; })
+      .sort((a, b) => a.sort - b.sort);
+    const H_WIND = [14, 16, 18, 17, 15, 12], H_DIR = ["SO", "SO", "O", "O", "NO", "NO"], H_T = [4, 4, 3, 2, 1, 0];
+    const nextHour = Math.ceil(nowD.getTime() / 3600000) * 3600000;
+    const hours = H_WIND.map((w, i) => ({ h: hhmm(nextHour + i * 3600000).h + " h", t: fmtT(H_T[i]).replace(" ", ""), w: fmtWind(w).replace(" ", " "), d: H_DIR[i] }));
+    const PRES6 = [102.3, 102.2, 102.1, 102.0, 101.9, 101.8];
+    const pMin = Math.min.apply(null, PRES6) - 0.05, pMax = Math.max.apply(null, PRES6) + 0.05;
+    const spark = PRES6.map((p, i) => (i * 20) + "," + (2 + (pMax - p) / (pMax - pMin) * 22).toFixed(1)).join(" ");
+    const falling = tendKpa <= -0.1, moderate = windKmh >= 10 && windKmh <= 25;
+    const read = (falling && moderate
+      ? "Pression en baisse et vent modéré du sud-ouest : souvent un bon moment, surtout près des pointes et des rives exposées au vent."
+      : falling ? "Pression en baisse : le poisson est souvent plus actif avant un changement de temps."
+      : "Pression stable ou en hausse : le poisson peut être plus difficile, pensez à ralentir la présentation.")
+      + (moon.age > 13 && moon.age < 16.5 ? " Pleine lune : l'activité peut se déplacer vers la nuit." : "");
+    const cond = {
+      place: "Réservoir Kipawa · " + zLabel(zoneId),
+      updated: s.noNet ? "Hors réseau · mis à jour il y a 2 h 10" : "Mis à jour il y a 12 min",
+      updatedShort: s.noNet ? "il y a 2 h 10" : "il y a 12 min",
+      presShort: trend[0] + " · " + fmtPres(presKpa),
+      headline: falling && moderate ? "Conditions plutôt favorables. Voir le détail" : "Voir le détail des conditions",
+      read: read, windRot: 45, windAria: "Vent du sud-ouest",
+      spark: spark, hours: hours, solunar: solu,
+      sunrise: fmtHM(utc0 + sunUtcMin(true) * 60000), sunset: fmtHM(utc0 + sunUtcMin(false) * 60000)
     };
     const barsOf = (rows) => { const mx = Math.max.apply(null, rows.map((r) => r[1])); return rows.map((r) => ({ label: r[0], n: r[1], pct: Math.round(r[1] / mx * 100) })); };
     const byTrend = barsOf([["En baisse", 11], ["Stable", 7], ["En hausse", 3]]);
@@ -1744,6 +1850,7 @@ class Component extends DCLogic {
       flyOnly: s.flyOnly, toggleFly: () => this.setState({ flyOnly: !s.flyOnly }),
       vg: vg, gv: gv,
       wx: wx, moon: moon, byTrend: byTrend, byMoon: byMoon,
+      isCond: sc === "cond", goCond: go("cond"), cond: cond, zoneLabelLower: zLabel(zoneId).replace("Zone", "zone"),
       windOpts: seg([["kmh", "km/h", "par défaut"], ["mph", "mi/h", "milles"]], s.windU, (v) => this.setState({ windU: v })),
       presOpts: seg([["kpa", "kPa", "par défaut"], ["inhg", "po Hg", "pouces de mercure"]], s.presU, (v) => this.setState({ presU: v })),
       noNet: s.noNet, toggleNoNet: () => this.setState({ noNet: !s.noNet }),
